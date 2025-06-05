@@ -86,61 +86,65 @@
   <div id="grid">Načítám data...</div>
 
   <script>
-    let players = [];
+  let players = [];
 
-    window.onload = function () {
-      fetch('players.csv')
-        .then(res => res.text())
-        .then(data => {
-          parseCSV(data);
-          document.getElementById('sortSelect').addEventListener('change', () =>
-            renderGrid(document.getElementById('sortSelect').value)
-          );
-          renderGrid('KDA');
-        })
-        .catch(err => {
-          document.getElementById("grid").innerHTML = '<p style="color:red">Chyba při načítání CSV</p>';
-          console.error(err);
-        });
-    };
+  window.onload = function () {
+    fetch('players.csv')
+      .then(response => response.text())
+      .then(text => {
+        parseCSV(text);
+        document.getElementById('sortSelect').addEventListener('change', () =>
+          renderGrid(document.getElementById('sortSelect').value)
+        );
+        renderGrid('KDA');
+      })
+      .catch(err => {
+        document.getElementById("grid").innerHTML = '<p style="color:red; text-align:center">Nepodařilo se načíst players.csv</p>';
+        console.error(err);
+      });
+  };
 
-    function parseCSV(data) {
-      const lines = data.trim().split('\n');
-      const headers = lines[0].split(';').slice(1);
-      players = lines.slice(1).map(line => {
-        const cells = line.split(';').slice(1);
-        const obj = {};
-        headers.forEach((h, i) => {
-          obj[h] = cells[i];
-        });
-        return obj;
-      }).filter(p => p['Tým']);
-    }
+  function parseCSV(data) {
+    const lines = data.trim().split('\n');
+    const headers = lines[0].split(';').slice(1);
+    players = lines.slice(1).map(line => {
+      const cells = line.split(';').slice(1);
+      const obj = {};
+      headers.forEach((h, i) => {
+        obj[h] = cells[i];
+      });
+      return obj;
+    }).filter(p => p['Tým']);
+  }
 
-    function renderGrid(sortBy) {
-      const grid = document.getElementById("grid");
-      grid.innerHTML = "";
+  function renderGrid(sortBy) {
+    const grid = document.getElementById("grid");
+    grid.innerHTML = "";
 
-      players.sort((a, b) => {
+    players.sort((a, b) => {
+      if (sortBy === "Tým") {
+        return (a["Tým"] || "").localeCompare(b["Tým"] || "");
+      } else {
         const num = val => parseFloat((val || '0').replace(',', '.')) || 0;
         return num(b[sortBy]) - num(a[sortBy]);
-      });
-
-      for (const p of players) {
-        const logoPath = `images/${p["Tým"]}.png`;
-        const card = document.createElement("div");
-        card.className = "player-card";
-        card.innerHTML = `
-          <img src="${logoPath}" alt="${p["Tým"]}" class="team-logo" onerror="this.src='https://via.placeholder.com/48?text=No+Logo'">
-          <div class="player-name">${p["Player"]}</div>
-          <div class="player-info">Role: ${p["Role"]}</div>
-          <div class="player-info">Kills/Deaths/Assists: ${p["Kills"]}/${p["Deaths"]}/${p["Assists"]}</div>
-          <div class="player-info">KDA: ${p["KDA"]}</div>
-          <div class="player-info">Počet her: ${p["Počet Her"]}, MVP: ${p["MVP"]}</div>
-        `;
-        grid.appendChild(card);
       }
+    });
+
+    for (const p of players) {
+      const logoPath = `images/${p["Tým"]}.png`;
+      const card = document.createElement("div");
+      card.className = "player-card";
+      card.innerHTML = `
+        <img src="${logoPath}" alt="${p["Tým"]}" class="team-logo" onerror="this.src='https://via.placeholder.com/48?text=No+Logo'">
+        <div class="player-name">${p["Player"]}</div>
+        <div class="player-info highlight">KDA: ${p["KDA"]}</div>
+        <div class="player-info">MVP: ${p["MVP"]}</div>
+        <div class="player-info">Kills: ${p["Kills"]}</div>
+      `;
+      grid.appendChild(card);
     }
-  </script>
+  }
+</script>
+
 </body>
 </html>
