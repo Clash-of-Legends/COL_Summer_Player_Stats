@@ -83,38 +83,38 @@
     </select>
   </div>
 
-  <div id="grid"></div>
+  <div id="grid">Načítám data...</div>
 
   <script>
     let players = [];
 
     window.onload = function () {
       fetch('players.csv')
-        .then(response => response.text())
-        .then(text => {
-          parseCsv(text);
-          document.getElementById("sortSelect").addEventListener("change", () => {
-            renderGrid(document.getElementById("sortSelect").value);
-          });
-          renderGrid("KDA");
+        .then(res => res.text())
+        .then(data => {
+          parseCSV(data);
+          document.getElementById('sortSelect').addEventListener('change', () =>
+            renderGrid(document.getElementById('sortSelect').value)
+          );
+          renderGrid('KDA');
         })
         .catch(err => {
-          document.getElementById("grid").innerHTML = '<p style="color:red; text-align:center">Chyba při načítání CSV</p>';
+          document.getElementById("grid").innerHTML = '<p style="color:red">Chyba při načítání CSV</p>';
           console.error(err);
         });
     };
 
-    function parseCsv(data) {
-      const rows = data.trim().split('\n');
-      const headers = rows[0].split(';');
-      players = rows.slice(1).map(row => {
-        const cols = row.split(';');
+    function parseCSV(data) {
+      const lines = data.trim().split('\n');
+      const headers = lines[0].split(';').slice(1);
+      players = lines.slice(1).map(line => {
+        const cells = line.split(';').slice(1);
         const obj = {};
         headers.forEach((h, i) => {
-          obj[h] = cols[i];
+          obj[h] = cells[i];
         });
         return obj;
-      }).filter(p => p['Tým']); // pouze hráči s týmem
+      }).filter(p => p['Tým']);
     }
 
     function renderGrid(sortBy) {
@@ -122,8 +122,8 @@
       grid.innerHTML = "";
 
       players.sort((a, b) => {
-        const getNumber = v => parseFloat(v.replace(',', '.')) || 0;
-        return getNumber(b[sortBy]) - getNumber(a[sortBy]);
+        const num = val => parseFloat((val || '0').replace(',', '.')) || 0;
+        return num(b[sortBy]) - num(a[sortBy]);
       });
 
       for (const p of players) {
