@@ -120,7 +120,7 @@
 
     function parseCSV(data) {
       const lines = data.trim().split('\n');
-      const headers = lines[0].split(';').slice(1);
+      const headers = lines[0].replace(/^\uFEFF/, '').split(';').slice(1);
       players = lines.slice(1).map(line => {
         const cells = line.split(';').slice(1);
         const obj = {};
@@ -130,6 +130,7 @@
         return obj;
       }).filter(p => p['Tým']);
     }
+
 
     function renderGrid(sortBy) {
       const grid = document.getElementById("grid");
