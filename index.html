@@ -62,7 +62,7 @@
     .player-name {
       font-weight: bold;
       font-size: 16px;
-      margin-bottom: 5px;
+      margin-bottom: 6px;
       color: #ffffff;
     }
 
@@ -84,8 +84,8 @@
     <label for="sortSelect">Řadit podle:</label>
     <select id="sortSelect">
       <option value="KDA">KDA</option>
-      <option value="Počet Her">Počet Her</option>
       <option value="MVP">MVP</option>
+      <option value="Kills">Kills</option>
       <option value="Tým">Tým</option>
     </select>
   </div>
@@ -93,34 +93,112 @@
   <div id="grid">Načítám data...</div>
 
   <script>
+    const csvData = `
+;Player;Kills;Deaths;Assists;KDA;Počet Her;MVP;Role;Tým
+1;ALTEIAN;10;21;15;1,2;4;0;TOP;Monitors
+2;WINNIK;20;12;38;4,8;4;0;JNG;Monitors
+3;SAJOX;24;13;30;4,2;4;0;MID;Monitors
+4;PREDATOR;23;8;33;7,0;4;1;ADC;Monitors
+5;DEDA;8;17;53;3,6;4;1;SUP;Monitors
+6;LAGIER;25;23;30;2,4;6;1;TOP;Bears
+7;HOUBA;11;24;61;3,0;6;0;JNG;Bears
+8;DABLIK;21;25;41;2,5;6;2;MID;Bears
+9;447;42;20;34;3,8;6;0;ADC;Bears
+10;DEAGLES;2;10;48;5,0;2;0;SUP;Bears
+11;POPO;15;38;19;0,9;6;0;TOP;Sharks
+12;SKENK;27;45;33;1,3;6;0;JNG;Sharks
+13;KUBIK;23;35;37;1,7;6;1;MID;Sharks
+14;RESTRICTED;21;37;21;1,1;5;0;ADC;Sharks
+15;MIA;5;37;54;1,6;6;0;SUP;Sharks
+16;SOVAZ;31;25;21;2,1;6;2;TOP;Cheetahs
+17;MOREALL;20;26;52;2,8;6;0;JNG;Cheetahs
+18;AMITH;27;26;30;2,2;6;0;MID;Cheetahs
+19;RAIIDEN;17;13;36;4,1;6;0;ADC;Cheetahs
+20;NATYNA;4;28;55;2,1;6;0;SUP;Cheetahs
+21;ALKO;26;12;14;3,3;6;0;TOP;Kangaroo
+22;ARASHID;28;26;64;3,5;6;0;JNG;Kangaroo
+23;PANDA;35;21;48;4,0;6;3;MID;Kangaroo
+24;WODR;43;20;49;4,6;6;1;ADC;Kangaroo
+25;TEE;9;19;83;4,8;6;0;SUP;Kangaroo
+26;POLI;20;6;29;8,2;4;1;TOP;Aligators
+27;KRYSTOF;37;16;59;6,0;5;1;JNG;Aligators
+28;ZEN;43;15;40;5,5;5;1;MID;Aligators
+29;VALIS;17;18;64;4,5;5;0;ADC;Aligators
+30;LAMA;17;13;75;7,1;5;2;SUP;Aligators
+31;GABEQ;9;27;29;1,4;6;0;TOP;Pandas
+32;HAJNEJ;5;26;20;1,0;3;0;JNG;Pandas
+33;PILOT;24;25;32;2,2;6;0;MID;Pandas
+34;ERNIE;40;32;34;2,3;6;1;ADC;Pandas
+35;MUFFI;4;28;71;2,7;6;1;SUP;Pandas
+36;MARMELADA;11;9;24;3,9;3;1;TOP;Tigers
+37;DAO;26;15;48;4,9;4;0;JNG;Tigers
+38;PISLOU;43;5;37;16,0;4;1;MID;Tigers
+39;VAJTAKK;25;14;38;4,5;4;0;ADC;Tigers
+40;HANI;1;7;77;11,1;4;2;SUP;Tigers
+41;BUZZ;32;16;38;4,4;5;0;TOP;Iguana
+42;ONIFUS;6;31;56;2,0;5;2;JNG;Iguana
+43;MABE;37;19;42;4,2;5;0;MID;Iguana
+44;ECLIPSE;27;24;40;2,8;5;0;ADC;Iguana
+45;DREAMERR;14;26;65;3,0;5;0;SUP;Iguana
+46;BUCKO;16;7;12;4,0;2;0;TOP;Snakes
+47;RADEK;28;29;84;3,9;6;0;JNG;Snakes
+48;LOVECOURY;35;27;71;3,9;6;0;MID;Snakes
+49;STOMCI;43;19;61;5,5;6;1;ADC;Snakes
+50;JENIKK;18;36;95;3,1;6;0;SUP;Snakes
+51;XPEPE;8;29;40;1,7;6;1;TOP;Capybara
+52;MORPHED;42;25;60;4,1;6;0;JNG;Capybara
+53;XERUTH;37;18;31;3,8;4;1;MID;Capybara
+54;SIMBA;38;28;42;2,9;6;0;ADC;Capybara
+55;MONIKAS;1;35;93;2,7;6;0;SUP;Capybara
+56;DARK;14;21;27;2,0;5;0;TOP;Lions
+57;MIRACLE;24;18;44;3,8;5;1;JNG;Lions
+58;POSTOLKA;20;20;25;2,3;4;2;MID;Lions
+59;ASTRO;31;18;29;3,3;5;0;ADC;Lions
+60;ERKO;5;19;65;3,7;5;0;SUP;Lions
+61;HOLUB;9;19;42;2,7;6;0;TOP;Parrots
+62;SGOOB;52;23;39;4,0;6;3;JNG;Parrots
+63;WENDSD;24;25;30;2,2;6;0;MID;Parrots
+64;CLER;19;19;43;3,3;6;0;ADC;Parrots
+65;MAKIMA;2;8;70;9,0;6;0;SUP;Parrots
+66;LADIK;24;27;41;2,4;7;1;TOP;Flamingo
+67;MICHAL;44;34;40;2,5;7;1;JNG;Flamingo
+68;ASMO;24;31;47;2,3;7;1;MID;Flamingo
+69;LENNY;38;22;33;3,2;7;0;ADC;Flamingo
+70;PLESOUN;11;23;71;3,6;7;1;SUP;Flamingo
+71;MATO;14;11;32;4,2;4;1;TOP;Whales
+72;KESSIG;26;15;37;4,2;4;0;JNG;Whales
+73;MORDECAAY;20;24;37;2,4;4;0;MID;Whales
+74;UNSHEAD;23;15;36;3,9;4;1;ADC;Whales
+75;MAJO;4;13;51;4,2;4;0;SUP;Whales
+76;BLAZE;23;11;29;4,7;6;0;TOP;Wolves
+77;TOOFAST;19;23;48;2,9;6;2;JNG;Wolves
+78;NUGY;22;22;44;3,0;6;0;MID;Wolves
+79;BRTA;26;17;34;3,5;6;1;ADC;Wolves
+80;KIPEK;3;31;54;1,8;6;0;SUP;Wolves
+81;JIRKOS;8;6;4;2,0;2;0;SUB;
+82;VENDY;0;3;17;5,7;1;0;SUB;
+83;VITAN;2;1;3;5,0;1;0;SUB;
+84;CHALEC;3;11;25;2,5;2;0;SUB;
+85;LOSTY;4;1;14;18,0;1;0;SUB;
+86;ZEZE;12;8;18;3,8;2;0;SUB;
+87;FYLOUS;10;21;27;1,8;4;1;SUB;
+88;8PEK;0;13;10;0,8;3;0;SUB;
+89;MANGO;2;7;9;1,6;1;0;SUB;
+`.trim();
+
     let players = [];
 
     window.onload = function () {
-      console.log("Načítám stránku...");
-    
-      fetch('players.csv')
-        .then(response => {
-          if (!response.ok) throw new Error("Soubor nenalezen");
-          return response.text();
-        })
-        .then(text => {
-          console.log("Soubor načten");
-          parseCSV(text);
-          document.getElementById('sortSelect').addEventListener('change', () =>
-            renderGrid(document.getElementById('sortSelect').value)
-          );
-          renderGrid('KDA');
-        })
-        .catch(err => {
-          document.getElementById("grid").innerHTML = '<p style="color:red; text-align:center">Nepodařilo se načíst players.csv</p>';
-          console.error("Chyba při načítání CSV:", err);
-        });
+      parseCSV(csvData);
+      document.getElementById('sortSelect').addEventListener('change', () =>
+        renderGrid(document.getElementById('sortSelect').value)
+      );
+      renderGrid('KDA');
     };
-
 
     function parseCSV(data) {
       const lines = data.trim().split('\n');
-      const headers = lines[0].replace(/^\uFEFF/, '').split(';').slice(1);
+      const headers = lines[0].split(';').slice(1);
       players = lines.slice(1).map(line => {
         const cells = line.split(';').slice(1);
         const obj = {};
@@ -131,11 +209,10 @@
       }).filter(p => p['Tým']);
     }
 
-
     function renderGrid(sortBy) {
       const grid = document.getElementById("grid");
       grid.innerHTML = "";
-    
+
       players.sort((a, b) => {
         if (sortBy === "Tým") {
           return (a["Tým"] || "").localeCompare(b["Tým"] || "");
@@ -144,7 +221,7 @@
           return num(b[sortBy]) - num(a[sortBy]);
         }
       });
-    
+
       for (const p of players) {
         const logoPath = `images/${p["Tým"]}.png`;
         const card = document.createElement("div");
@@ -159,7 +236,6 @@
         grid.appendChild(card);
       }
     }
-
   </script>
 </body>
 </html>
