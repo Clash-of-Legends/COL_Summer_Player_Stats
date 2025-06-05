@@ -96,9 +96,15 @@
     let players = [];
 
     window.onload = function () {
+      console.log("Načítám stránku...");
+    
       fetch('players.csv')
-        .then(response => response.text())
+        .then(response => {
+          if (!response.ok) throw new Error("Soubor nenalezen");
+          return response.text();
+        })
         .then(text => {
+          console.log("Soubor načten");
           parseCSV(text);
           document.getElementById('sortSelect').addEventListener('change', () =>
             renderGrid(document.getElementById('sortSelect').value)
@@ -107,9 +113,10 @@
         })
         .catch(err => {
           document.getElementById("grid").innerHTML = '<p style="color:red; text-align:center">Nepodařilo se načíst players.csv</p>';
-          console.error(err);
+          console.error("Chyba při načítání CSV:", err);
         });
     };
+
 
     function parseCSV(data) {
       const lines = data.trim().split('\n');
