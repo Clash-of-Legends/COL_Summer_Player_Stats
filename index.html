@@ -127,7 +127,7 @@
     function renderGrid(sortBy) {
       const grid = document.getElementById("grid");
       grid.innerHTML = "";
-
+    
       players.sort((a, b) => {
         if (sortBy === "Tým") {
           return (a["Tým"] || "").localeCompare(b["Tým"] || "");
@@ -136,7 +136,7 @@
           return num(b[sortBy]) - num(a[sortBy]);
         }
       });
-
+    
       for (const p of players) {
         const logoPath = `images/${p["Tým"]}.png`;
         const card = document.createElement("div");
@@ -151,6 +151,7 @@
         grid.appendChild(card);
       }
     }
+
   </script>
 </body>
 </html>
