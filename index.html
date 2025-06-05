@@ -115,18 +115,22 @@
       renderGrid('KDA');
     });
 
-    function parseCSV(data) {
-      const lines = data.trim().split('\n');
-      const headers = lines[0].split(';').slice(1);
-      players = lines.slice(1).map(line => {
-        const cells = line.split(';').slice(1);
-        const obj = {};
-        headers.forEach((h, i) => {
-          obj[h] = cells[i];
-        });
-        return obj;
-      }).filter(p => p['Tým']);
-    }
+  function parseCSV(data) {
+    const lines = data.trim().split('\n');
+    const headers = lines[0].split(';').slice(1);
+    players = lines.slice(1).map(line => {
+      const cells = line.split(';').slice(1);
+      const obj = {};
+      headers.forEach((h, i) => {
+        obj[h.trim()] = cells[i]; // DŮLEŽITÉ: ořízne případné mezery
+      });
+      return obj;
+    }).filter(p => p['Tým']);
+    console.log(players); // ← sem přidej výpis do konzole
+    console.log("Lines:", lines);
+    console.log("Headers:", headers);
+  }
+
 
     function renderGrid(sortBy) {
       const grid = document.getElementById("grid");
