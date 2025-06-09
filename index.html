@@ -1,1913 +1,254 @@
 <!DOCTYPE html>
-<!-- saved from url=(0055)https://developer.riotgames.com/docs/lol#tournament-api -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style><!----> <!--?lit$426354772$-->.osano-cm-window{font-family:Helvetica,Arial,Hiragino Sans GB,STXihei,Microsoft YaHei,WenQuanYi Micro Hei,Hind,MS Gothic,Apple SD Gothic Neo,NanumBarunGothic,sans-serif;font-size:16px;font-smooth:always;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothingz:auto;display:block;left:0;line-height:1;position:absolute;top:0;width:100%;z-index:2147483638;--fade-transition-time:700ms;--slide-transition-time:400ms}.osano-cm-window--context_amp{height:100%}.osano-visually-hidden{height:1px;left:-10000px;margin:-1px;opacity:0;overflow:hidden;position:absolute;width:1px}.osano-cm-button{border-radius:.25em;border-style:solid;border-width:thin;cursor:pointer;flex:1 1 auto;font-size:1em;font-weight:700;line-height:1;margin:.125em;min-width:6em;padding:.5em .75em;transition-duration:.2s;transition-property:background-color;transition-timing-function:ease-out}.osano-cm-button--type_icon{border-radius:50%;height:1em;line-height:0;min-width:1em;width:1em}.osano-cm-button:focus,.osano-cm-button:hover{outline:none}.osano-cm-close{border-radius:50%;border-style:solid;border-width:2px;box-sizing:content-box;cursor:pointer;height:20px;margin:.5em;min-height:20px;min-width:20px;order:0;outline:none;overflow:hidden;padding:0;width:20px;stroke-width:1px;justify-content:center;line-height:normal;text-decoration:none;transform:rotate(0deg);transition-duration:.2s;transition-property:transform,color,background-color,stroke,stroke-width;transition-timing-function:ease-out;z-index:2}.osano-cm-close:focus,.osano-cm-close:hover{transform:rotate(90deg);stroke-width:2px}.ccpa-opt-out-icon{display:flex;flex:1 1 auto}.ccpa-opt-out-icon svg{max-width:40px}.osano-cm-link{cursor:pointer;text-decoration:underline;transition-duration:.2s;transition-property:color;transition-timing-function:ease-out}.osano-cm-link:active,.osano-cm-link:hover{outline:none}.osano-cm-link:focus{font-weight:700;outline:none}.osano-cm-link--type_feature,.osano-cm-link--type_purpose,.osano-cm-link--type_specialFeature,.osano-cm-link--type_specialPurpose{cursor:help;display:block;-webkit-text-decoration:dashed;text-decoration:dashed}.osano-cm-link--type_denyAll{display:block;text-align:right}[dir=rtl] .osano-cm-link--type_denyAll{text-align:left}.osano-cm-link--type_vendor{display:block}.osano-cm-vendor-link{font-size:.75em}.osano-cm-list-item{margin:0}.osano-cm-list-item--type_term{border-top-style:solid;border-top-width:1px;font-size:.875rem;font-weight:400;margin-bottom:.25em;margin-top:.5em;padding:.5em .75rem 0;position:relative;top:-1px}.osano-cm-list-item--type_description{font-size:.75rem;font-weight:lighter;padding:0 .75rem}.osano-cm-list{list-style-position:outside;list-style-type:none;margin:0;padding:0}.osano-cm-list__list-item{text-indent:0}.osano-cm-list--type_description{margin:0 -1em}.osano-cm-list:first-of-type .osano-cm-list__list-item:first-of-type{border-top-width:0;margin-top:0;padding-top:0}.osano-cm-toggle{align-items:center;display:flex;flex-direction:row-reverse;justify-content:flex-start;margin:.25em 0;pointer-events:auto;position:relative}.osano-cm-toggle__label{margin:0 .5em 0 0}[dir=rtl] .osano-cm-toggle__label{margin:0 0 0 .5em}.osano-cm-toggle__switch{border-radius:14px;border-style:solid;border-width:2px;box-sizing:content-box;color:transparent;display:block;flex-shrink:0;height:18px;line-height:0;margin:0;position:relative;text-indent:-9999px;transition-duration:.2s;transition-property:background-color;transition-timing-function:ease-out;width:40px}.osano-cm-toggle__switch:hover{cursor:pointer}.osano-cm-toggle__switch:after{border-radius:9px;border-width:0;height:18px;left:0;top:0;width:18px}.osano-cm-toggle__switch:before{border-radius:16px;border-width:2px;bottom:-6px;box-sizing:border-box;left:-6px;right:-6px;top:-6px}.osano-cm-toggle__switch:after,.osano-cm-toggle__switch:before{border-style:solid;content:"";margin:0;position:absolute;transform:translateX(0);transition-duration:.3s;transition-property:transform,left,border-color;transition-timing-function:ease-out}.osano-cm-toggle__switch:after:active,.osano-cm-toggle__switch:before:active{transition-duration:.1s}.osano-cm-toggle__switch:after:active{width:26px}.osano-cm-toggle__switch:before:active{width:34px}[dir=rtl] .osano-cm-toggle__switch:after{left:100%;transform:translateX(-100%)}.osano-cm-toggle__input{height:1px;left:-10000px;margin:-1px;opacity:0;overflow:hidden;position:absolute;width:1px}[dir=rtl] .osano-cm-toggle__input{left:0;right:-10000px}.osano-cm-toggle__input:disabled{cursor:default}.osano-cm-toggle--type_checkbox .osano-cm-toggle__switch{border-radius:4px;border-style:solid;border-width:1px;height:22px;width:22px}.osano-cm-toggle--type_checkbox .osano-cm-toggle__switch:after{background-color:transparent!important;border-bottom-width:2px;border-left-width:2px;border-radius:0;content:none;height:6px;left:3px;top:3px;transform:rotate(-45deg);transition-property:color;transition-timing-function:ease-out;width:12px}.osano-cm-toggle--type_opt-out .osano-cm-toggle__switch{border-radius:4px;border-style:solid;border-width:1px;height:22px;width:22px}.osano-cm-toggle--type_opt-out .osano-cm-toggle__switch:after,.osano-cm-toggle--type_opt-out .osano-cm-toggle__switch:before{background-color:transparent!important;border-bottom-width:1px;border-radius:0;border-top-width:1px;content:none;height:0;left:-3px;top:7px;transition-property:color;transition-timing-function:ease-out;width:12px}.osano-cm-toggle--type_opt-out .osano-cm-toggle__switch:after{transform:translate(50%,50%) rotate(-45deg)}.osano-cm-toggle--type_opt-out .osano-cm-toggle__switch:before{transform:translate(50%,50%) rotate(45deg)}.osano-cm-toggle__input:checked+.osano-cm-toggle__switch:after{left:100%;transform:translateX(-100%)}[dir=rtl] .osano-cm-toggle__input:checked+.osano-cm-toggle__switch:after{left:0;transform:translateX(0)}.osano-cm-toggle__input:disabled+.osano-cm-toggle__switch{cursor:default}.osano-cm-toggle--type_checkbox .osano-cm-toggle__input:checked+.osano-cm-toggle__switch:after{content:"";left:3px;top:3px;transform:rotate(-45deg)}.osano-cm-toggle--type_opt-out .osano-cm-toggle__input:checked+.osano-cm-toggle__switch:after,.osano-cm-toggle--type_opt-out .osano-cm-toggle__input:checked+.osano-cm-toggle__switch:before{content:"";left:-1px;top:9px}.osano-cm-toggle--type_opt-out .osano-cm-toggle__input:checked+.osano-cm-toggle__switch:after{transform:translate(50%,50%) rotate(-45deg)}.osano-cm-toggle--type_opt-out .osano-cm-toggle__input:checked+.osano-cm-toggle__switch:before{transform:translate(50%,50%) rotate(45deg)}.osano-cm-toggle--type_checkbox .osano-cm-toggle__input:disabled+.osano-cm-toggle__switch,.osano-cm-toggle--type_opt-out .osano-cm-toggle__input:disabled+.osano-cm-toggle__switch{opacity:.3}.osano-cm-widget{background:none;border:none;bottom:12px;cursor:pointer;height:40px;opacity:.9;outline:none;padding:0;position:fixed;transition:transform .1s linear 0s,opacity .2s linear 0ms,visibility 0ms linear 0ms;visibility:visible;width:40px;z-index:2147483636}.osano-cm-widget--position_right{right:12px}.osano-cm-widget--position_left{left:12px}.osano-cm-widget:focus{outline:solid;outline-offset:.2rem}.osano-cm-widget:focus,.osano-cm-widget:hover{opacity:1;transform:scale(1.1)}.osano-cm-widget--hidden{opacity:0;visibility:hidden}.osano-cm-widget--hidden:focus,.osano-cm-widget--hidden:hover{opacity:0;transform:scale(1)}.osano-cm-dialog{align-items:center;box-sizing:border-box;font-size:1em;line-height:1.25;max-height:100vh;overflow:auto;padding:1.5em;position:fixed;transition-delay:0ms,0ms;transition-duration:.7s,0ms;transition-property:opacity,visibility;visibility:visible;z-index:2147483637}.osano-cm-dialog--hidden{opacity:0;transition-delay:0ms,.7s;visibility:hidden}.osano-cm-dialog--type_bar{box-sizing:border-box;display:flex;flex-direction:column;left:0;right:0}.osano-cm-dialog--type_bar .osano-cm-button{flex:none;margin:.125em auto;width:80%}@media screen and (min-width:768px){.osano-cm-dialog--type_bar{flex-direction:row}.osano-cm-dialog--type_bar .osano-cm-button{flex:1 1 100%;margin:.25em .5em;width:auto}}.osano-cm-dialog--type_box{flex-direction:column;max-height:calc(100vh - 2em);max-width:20em;width:calc(100vw - 2em)}.osano-cm-dialog__close{position:absolute;right:0;top:0}.osano-cm-dialog__list{margin:.5em 0 0;padding:0}.osano-cm-dialog__list .osano-cm-item{display:flex;margin-top:0}.osano-cm-dialog__list .osano-cm-item:last-child{margin-bottom:0}.osano-cm-dialog__list .osano-cm-toggle{flex-direction:row}[dir=rtl] .osano-cm-dialog__list .osano-cm-toggle{flex-direction:row-reverse}.osano-cm-dialog__list .osano-cm-label{white-space:nowrap}[dir=ltr] .osano-cm-dialog__list .osano-cm-label{margin-left:.375em}[dir=rtl] .osano-cm-dialog__list .osano-cm-label{margin-right:.375em}.osano-cm-dialog__buttons{display:flex;flex-wrap:wrap}.osano-cm-dialog--type_bar .osano-cm-dialog__content{flex:5;margin-bottom:.25em;width:100%}.osano-cm-dialog--type_box .osano-cm-dialog__content{display:flex;flex-direction:column;flex-grow:.0001;transition:flex-grow 1s linear}.osano-cm-dialog--type_box .osano-cm-link-separator:before{content:"";padding:0}.osano-cm-dialog--type_box .osano-cm-content__link{margin-bottom:.5em}.osano-cm-dialog--type_bar .osano-cm-dialog__list{display:flex;flex-direction:column;flex-wrap:wrap;justify-content:flex-start;margin:.75em auto}@media screen and (min-width:376px){.osano-cm-dialog--type_bar .osano-cm-dialog__list{flex-direction:row}}@media screen and (min-width:768px){.osano-cm-dialog--type_bar .osano-cm-dialog__list{margin:.5em 0 0 auto}[dir=rtl] .osano-cm-dialog--type_bar .osano-cm-dialog__list{margin:.5em auto 0 0}}[dir=ltr] .osano-cm-dialog--type_bar .osano-cm-dialog__list .osano-cm-item{margin-right:.5em}[dir=rtl] .osano-cm-dialog--type_bar .osano-cm-dialog__list .osano-cm-item{margin-left:.5em}.osano-cm-dialog--type_bar .osano-cm-dialog__list .osano-cm-label{padding-top:0}.osano-cm-dialog--type_bar .osano-cm-dialog__buttons{flex:1;justify-content:flex-end;margin:0;width:100%}@media screen and (min-width:768px){.osano-cm-dialog--type_bar .osano-cm-dialog__buttons{margin:0 0 0 .5em;max-width:30vw;min-width:16em;position:sticky;top:0;width:auto}[dir=rtl] .osano-cm-dialog--type_bar .osano-cm-dialog__buttons{margin:0 .5em 0 0}}.osano-cm-dialog--type_box .osano-cm-dialog__buttons{margin:.5em 0 0}.osano-cm-dialog--type_bar.osano-cm-dialog--position_top{top:0}.osano-cm-dialog--type_bar.osano-cm-dialog--position_bottom{bottom:0}.osano-cm-dialog--type_box.osano-cm-dialog--position_top-left{left:1em;top:1em}.osano-cm-dialog--type_box.osano-cm-dialog--position_top-right{right:1em;top:1em}.osano-cm-dialog--type_box.osano-cm-dialog--position_bottom-left{bottom:1em;left:1em}.osano-cm-dialog--type_box.osano-cm-dialog--position_bottom-right{bottom:1em;right:1em}.osano-cm-dialog--type_box.osano-cm-dialog--position_center{left:50%;top:50%;transform:translate(-50%,-50%)}.osano-cm-dialog--type_box.osano-cm-dialog--wide{max-width:50em}@media screen and (max-height:800px)and (max-width:1200px){.osano-cm-dialog--type_box.osano-cm-dialog--wide{max-width:calc(100vw - 4em)}}.osano-cm-dialog--type_box.osano-cm-dialog--wide .osano-cm-dialog__list{display:flex;flex-wrap:wrap}.osano-cm-dialog--context_amp{height:100%;position:relative}.osano-cm-content__message{margin-bottom:1em;word-break:break-word}.osano-cm-drawer-links{margin:.5em 0 0}.osano-cm-drawer-links__link{display:block}.osano-cm-storage-policy{display:inline-block}.osano-cm-usage-list{margin:0 0 .5em}.osano-cm-usage-list__list{list-style-position:inside;list-style-type:disc}:export{fadeTransitionTime:.7s;slideTransitionTime:.4s}.osano-cm-info-dialog{height:100vh;left:0;position:fixed;top:0;transition-delay:0ms,0ms;transition-duration:.2s,0ms;transition-property:opacity,visibility;visibility:visible;width:100vw;z-index:2147483638}.osano-cm-info-dialog--hidden{opacity:0;transition-delay:0ms,.2s;visibility:hidden}.osano-cm-header{margin:0 0 -1em;padding:1em 0;position:sticky;top:0;z-index:1}.osano-cm-info{animation:delay-overflow .4s;bottom:0;box-shadow:0 0 2px 2px #ccc;box-sizing:border-box;max-width:20em;overflow:visible visible;position:fixed;top:0;transition-duration:.4s;transition-property:transform;width:100%}.osano-cm-info--position_left{left:0;transform:translate(-100%)}.osano-cm-info--position_right{right:0;transform:translate(100%)}.osano-cm-info--open{animation:none;overflow:hidden auto;transform:translate(0)}.osano-cm-info--do_not_sell{animation:none;height:-moz-fit-content;height:fit-content;left:50%;max-height:100vh;position:fixed;right:auto;top:50%;transform:translate(-50%,-50%);transition:none}.osano-cm-info--do_not_sell .osano-cm-close{order:-1}.osano-cm-info--do_not_sell .osano-cm-header{box-sizing:content-box;display:block;flex:none}.osano-cm-info-views{align-items:flex-start;display:flex;flex-direction:row;flex-wrap:nowrap;height:100%;transition-duration:.4s;transition-property:transform;width:100%}[dir=rtl] .osano-cm-info-views{flex-direction:row-reverse}.osano-cm-info-views__view{box-sizing:border-box;flex-shrink:0;width:100%}.osano-cm-info-views--position_0>:not(:first-of-type){max-height:100%;overflow:hidden}.osano-cm-info-views--position_1{transform:translateX(-100%)}.osano-cm-info-views--position_1>:not(:nth-of-type(2)){max-height:100%;overflow:hidden}.osano-cm-info-views--position_2{transform:translateX(-200%)}.osano-cm-info-views--position_2>:not(:nth-of-type(3)){max-height:100%;overflow:hidden}.osano-cm-info--do_not_sell .osano-cm-info-views{height:-moz-fit-content;height:fit-content}.osano-cm-view{height:0;padding:0 .75em 1em;transition-delay:.4s;transition-duration:0ms;transition-property:height,visibility;visibility:hidden;width:100%}.osano-cm-view__button{font-size:.875em;margin:1em 0 0;width:100%}.osano-cm-view--active{height:auto;transition-delay:0ms;visibility:visible}.osano-cm-description{font-size:.75em;font-weight:300;line-height:1.375;margin:1em 0 0}.osano-cm-description:first-child{margin:0}.osano-cm-description:last-of-type{margin-bottom:1em}.osano-cm-drawer-toggle .osano-cm-label{font-size:.875em;line-height:1.375em;margin:0 auto 0 0}[dir=rtl] .osano-cm-drawer-toggle .osano-cm-label{margin:0 0 0 auto}.osano-cm-info-dialog-header{align-items:center;display:flex;flex-direction:row-reverse;left:auto;min-height:3.25em;position:sticky;top:0;width:100%;z-index:1}[dir=rtl] .osano-cm-info-dialog-header{flex-direction:row}.osano-cm-info-dialog-header__header{align-items:center;display:flex;flex:1 1 auto;font-size:1em;justify-content:flex-start;margin:0;order:1;padding:1em .75em}.osano-cm-info-dialog-header__description{font-size:.75em;line-height:1.375}.osano-cm-back,.osano-cm-info-dialog-header__close{position:relative}.osano-cm-back{flex:0 1 auto;margin:0 0 0 .5em;min-width:0;order:2;width:auto;z-index:2}[dir=rtl] .osano-cm-back{margin:0 .5em 0 0}.osano-cm-powered-by{align-items:center;display:flex;flex-direction:column;font-weight:700;justify-content:center;margin:1em 0}.osano-cm-powered-by__link{font-size:.625em;outline:none;text-decoration:none}.osano-cm-powered-by__link:focus,.osano-cm-powered-by__link:hover{text-decoration:underline}@keyframes delay-overflow{0%{overflow:hidden auto}}.osano-cm-drawer-iab-button-container{display:flex;gap:.5em;justify-content:center;margin-bottom:2em}.osano-cm-illustrations__list>.osano-cm-list-item--type_description{padding:.2rem 1rem}.osano-cm-drawer-item.osano-cm-description__list li{padding-top:.75em}.osano-cm-tcf-purpose--label{border-bottom:1px solid rgba(0,0,0,.1);display:block;margin-bottom:.5em;padding:.25em 0 .5em}.osano-cm-link.osano-cm-link--type_purpose{font-weight:400}.osano-cm-tcf-purpose--label input{float:right;margin-right:.5em}.osano-cm-expansion-panel{border-bottom:1px solid rgba(0,0,0,.1);display:block;font-size:.75em;margin:0 -1.5em 1em;padding:1.5em 1.5em 0}.osano-cm-expansion-panel--expanded{border-bottom:none}.osano-cm-expansion-panel--empty,.osano-cm-expansion-panel--empty:not([open]){border-bottom:1px solid rgba(0,0,0,.1);padding-bottom:0}.osano-cm-expansion-panel__body{background-color:rgba(0,0,0,.1);line-height:1.25;list-style:none;margin:0 -1.5em;max-height:0;overflow:hidden;padding:0 1.5em;transition-delay:0ms,0ms,0ms,.3s;transition-duration:.3s,.3s,.3s,0s;transition-property:max-height,padding-top,padding-bottom,visibility;transition-timing-function:ease-out;visibility:hidden}.osano-cm-expansion-panel__toggle{cursor:pointer;display:block;line-height:1.25;margin:0 auto 1em 0;outline:none;position:relative}.osano-cm-expansion-panel__toggle:active,.osano-cm-expansion-panel__toggle:focus,.osano-cm-expansion-panel__toggle:hover{outline:none}[dir=rtl] .osano-cm-expansion-panel__toggle{margin:0 0 1em auto}.osano-cm-expansion-panel--expanded .osano-cm-expansion-panel__body{max-height:none;padding:1.25em 1.5em 1em;transition-delay:0ms,0ms,0ms,0ms;visibility:visible}.osano-cm-cookie-disclosure__title,.osano-cm-script-disclosure__title{border:0;clear:both;display:block;flex:0 1 30%;font-size:1em;font-weight:700;line-height:1.375;margin:0 0 .5em;padding:0}.osano-cm-cookie-disclosure__description,.osano-cm-script-disclosure__description{flex:0 1 70%;font-size:1em;line-height:1.375;margin:0 0 .5em;padding:0}.osano-cm-disclosure{border-bottom:none;display:block;font-size:.75em;margin:0 -1.5em 1em;padding:1.5em 1.5em 0}.osano-cm-disclosure--collapse{border-bottom:1px solid rgba(0,0,0,.1);padding-bottom:1em}.osano-cm-disclosure--empty,.osano-cm-disclosure--empty:not([open]){border-bottom:1px solid rgba(0,0,0,.1);padding-bottom:0}.osano-cm-disclosure__list{background-color:rgba(0,0,0,.1);line-height:1.25;list-style:none;margin:0 -1.5em;padding:1.25em 1.5em 1em}.osano-cm-disclosure__list:empty{border:none;padding:0 1.5em}.osano-cm-disclosure__list:first-of-type{margin-top:1em;padding:1.25em 1.5em 1em}.osano-cm-disclosure__list:first-of-type:empty{padding:1.75em 1.5em .75em}.osano-cm-disclosure__list:not(:first-of-type):not(:empty){border-top:1px solid rgba(0,0,0,.1)}.osano-cm-disclosure__list:empty+.osano-cm-disclosure__list:not(:empty){border:none;padding:0 1.5em}.osano-cm-disclosure__list:not(:empty)~.osano-cm-disclosure__list:empty+.osano-cm-disclosure__list:not(:empty){border-top:1px solid rgba(0,0,0,.1)}.osano-cm-disclosure__list>.osano-cm-list-item{line-height:1.25}.osano-cm-disclosure__list>.osano-cm-list-item:not(:first-of-type){border-top:1px solid rgba(0,0,0,.1);margin:1em -1.25em 0;padding:1em 1.25em 0}.osano-cm-disclosure__toggle{cursor:pointer;display:block;font-weight:700;line-height:1.25;margin:0 auto 0 0;outline:none;position:relative}.osano-cm-disclosure__toggle:focus,.osano-cm-disclosure__toggle:hover{text-decoration:underline}[dir=rtl] .osano-cm-disclosure__toggle{margin:0 0 0 auto}.osano-cm-disclosure--loading .osano-cm-disclosure__list{height:0;line-height:0;max-height:0}.osano-cm-disclosure--loading .osano-cm-disclosure__list>*{display:none}.osano-cm-disclosure--loading .osano-cm-disclosure__list:after{animation-duration:1s;animation-iteration-count:infinite;animation-name:osano-load-scale;animation-timing-function:ease-in-out;border-radius:100%;content:"";display:block;height:1em;position:relative;top:-.125em;transform:translateY(-50%);width:1em}.osano-cm-disclosure--collapse .osano-cm-disclosure__list{display:none}.osano-cm-disclosure--collapse .osano-cm-disclosure__list:after{content:none}.osano-cm-cookie-disclosure,.osano-cm-script-disclosure{display:flex;flex-wrap:wrap;margin:0}.osano-cm-cookie-disclosure__description:last-of-type,.osano-cm-cookie-disclosure__title:last-of-type,.osano-cm-script-disclosure__description:last-of-type,.osano-cm-script-disclosure__title:last-of-type{margin-bottom:0}@keyframes osano-load-scale{0%{transform:translateY(-50%) scale(0)}to{opacity:0;transform:translateY(-50%) scale(1)}} .osano-cm-window { direction: <!--?lit$426354772$-->ltr; text-align: <!--?lit$426354772$-->left; } .osano-cm-dialog { background: <!--?lit$426354772$-->#141212; color: <!--?lit$426354772$-->#FFFFFF; } .osano-cm-dialog__close { color: <!--?lit$426354772$-->#FFFFFF; stroke: <!--?lit$426354772$-->#FFFFFF; } .osano-cm-dialog__close:focus { background-color: <!--?lit$426354772$-->#FFFFFF; border-color: <!--?lit$426354772$-->#FFFFFF; stroke: <!--?lit$426354772$-->#141212; } .osano-cm-dialog__close:hover { stroke: <!--?lit$426354772$-->#ebebeb; } .osano-cm-dialog__close:focus:hover { stroke: <!--?lit$426354772$-->#282626; } .osano-cm-info-dialog { background: <!--?lit$426354772$-->rgba(0,0,0,0.45); } .osano-cm-header, .osano-cm-info-dialog-header { background: <!--?lit$426354772$-->#180D43; background: linear-gradient( 180deg, <!--?lit$426354772$-->#180D43 2.5em, <!--?lit$426354772$-->rgba(24,13,67,0) 100% ); } .osano-cm-info { background: <!--?lit$426354772$-->#180D43; color: <!--?lit$426354772$-->#FFFFFF; } .osano-cm-link-separator::before { content: '|'; padding: 0 0.5em; } .osano-cm-close { display: flex; background-color: transparent; border-color: transparent; } .osano-cm-info-dialog-header__close { color: <!--?lit$426354772$-->#FFFFFF; stroke: <!--?lit$426354772$-->#FFFFFF; } .osano-cm-info-dialog-header__close:focus { background-color: <!--?lit$426354772$-->#FFFFFF; border-color: <!--?lit$426354772$-->#FFFFFF; stroke: <!--?lit$426354772$-->#180D43; } .osano-cm-info-dialog-header__close:hover { stroke: <!--?lit$426354772$-->#ebebeb; } .osano-cm-info-dialog-header__close:focus:hover { stroke: <!--?lit$426354772$-->#2c2157; } .osano-cm-disclosure__list:first-of-type::after { background-color: <!--?lit$426354772$-->#f0f0f0; } .osano-cm-disclosure__toggle, .osano-cm-expansion-panel__toggle { color: <!--?lit$426354772$-->#f0f0f0; } .osano-cm-disclosure__toggle:hover, .osano-cm-disclosure__toggle:active, .osano-cm-expansion-panel__toggle:hover, .osano-cm-expansion-panel__toggle:active { color: <!--?lit$426354772$-->#f0f0f0; } .osano-cm-disclosure__toggle:focus, .osano-cm-expansion-panel__toggle:focus { color: <!--?lit$426354772$-->#dcdcdc; } .osano-cm-button { background-color: <!--?lit$426354772$-->#f0f0f0; border-color: <!--?lit$426354772$-->#141212; color: <!--?lit$426354772$-->#141212; } .osano-cm-button--type_deny { background-color: <!--?lit$426354772$-->#262424; border-color: <!--?lit$426354772$-->#FFFFFF; color: <!--?lit$426354772$-->#FFFFFF; } .osano-cm-button:focus, .osano-cm-button:hover { background-color: <!--?lit$426354772$-->#dcdcdc; } .osano-cm-button--type_deny:focus, .osano-cm-button--type_deny:hover { background-color: <!--?lit$426354772$-->#3a3838; } .osano-cm-link { color: <!--?lit$426354772$-->#f0f0f0; } .osano-cm-link:hover, .osano-cm-link:active { color: <!--?lit$426354772$-->#f0f0f0; } .osano-cm-link:focus { color: <!--?lit$426354772$-->#dcdcdc; } .osano-cm-toggle__switch { background-color: <!--?lit$426354772$-->#7A3FF1; } .osano-cm-toggle__switch::after { background-color: <!--?lit$426354772$-->#FFFFFF; border-color: <!--?lit$426354772$-->#FFFFFF; } .osano-cm-toggle__switch::before { border-color: transparent; } .osano-cm-toggle__input:checked + .osano-cm-toggle__switch { background-color: <!--?lit$426354772$-->#37CD8F; border-color: <!--?lit$426354772$-->#37CD8F; } .osano-cm-toggle__input:checked + .osano-cm-toggle__switch::after { background-color: <!--?lit$426354772$-->#FFFFFF; border-color: <!--?lit$426354772$-->#FFFFFF; } .osano-cm-toggle__input:focus + .osano-cm-toggle__switch, .osano-cm-toggle__input:hover + .osano-cm-toggle__switch { background-color: <!--?lit$426354772$-->#8e53ff; border-color: <!--?lit$426354772$-->#8e53ff; } .osano-cm-toggle__input:focus + .osano-cm-toggle__switch::before { border-color: <!--?lit$426354772$-->#8e53ff; } .osano-cm-toggle__input:checked:focus + .osano-cm-toggle__switch, .osano-cm-toggle__input:checked:hover + .osano-cm-toggle__switch { background-color: <!--?lit$426354772$-->#23b97b; border-color: <!--?lit$426354772$-->#23b97b; } .osano-cm-toggle__input:checked:focus + .osano-cm-toggle__switch::before { border-color: <!--?lit$426354772$-->#23b97b; } .osano-cm-toggle__input:disabled + .osano-cm-toggle__switch, .osano-cm-toggle__input:disabled:focus + .osano-cm-toggle__switch, .osano-cm-toggle__input:disabled:hover + .osano-cm-toggle__switch { background-color: <!--?lit$426354772$-->#ba7fff; border-color: <!--?lit$426354772$-->#ba7fff; } .osano-cm-toggle__input:disabled + .osano-cm-toggle__switch::after, .osano-cm-toggle__input:disabled:focus + .osano-cm-toggle__switch::after, .osano-cm-toggle__input:disabled:hover + .osano-cm-toggle__switch::after { background-color: <!--?lit$426354772$-->#bfbfbf; border-color: <!--?lit$426354772$-->#bfbfbf; } .osano-cm-toggle__input:disabled + .osano-cm-toggle__switch::before, .osano-cm-toggle__input:disabled:focus + .osano-cm-toggle__switch::before, .osano-cm-toggle__input:disabled:hover + .osano-cm-toggle__switch::before { border-color: transparent; } .osano-cm-toggle__input:disabled:checked + .osano-cm-toggle__switch, .osano-cm-toggle__input:disabled:checked:focus + .osano-cm-toggle__switch, .osano-cm-toggle__input:disabled:checked:hover + .osano-cm-toggle__switch { background-color: <!--?lit$426354772$-->#008d4f; border-color: <!--?lit$426354772$-->#008d4f; } .osano-cm-toggle__input:disabled:checked + .osano-cm-toggle__switch::after, .osano-cm-toggle__input:disabled:checked:focus + .osano-cm-toggle__switch::after, .osano-cm-toggle__input:disabled:checked:hover + .osano-cm-toggle__switch::after { background-color: <!--?lit$426354772$-->#bfbfbf; border-color: <!--?lit$426354772$-->#bfbfbf; } .osano-cm-toggle__input:disabled:checked + .osano-cm-toggle__switch::before, .osano-cm-toggle__input:disabled:checked:focus + .osano-cm-toggle__switch::before, .osano-cm-toggle__input:disabled:checked:hover + .osano-cm-toggle__switch::before { border-color: transparent; } .osano-cm-widget__outline { fill: <!--?lit$426354772$-->#fff; stroke: <!--?lit$426354772$-->#29246a; } .osano-cm-widget__dot { fill: <!--?lit$426354772$-->#37cd8f; } .osano-cm-tcf-purpose--label input { accent-color: <!--?lit$426354772$-->#37CD8F; } </style><script defer="" async="" type="text/javascript" src="./Riot Developer Portal_files/rgea.min.js.stažený soubor"></script><script type="module" id="truffle-injected" data-runtime="bkkjeefjfjcfdfifddmkdmcpmaakmelp" src="chrome-extension://bkkjeefjfjcfdfifddmkdmcpmaakmelp/injected-script/index.js"></script>
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
-  <title>Riot Developer Portal</title>
-  <link rel="icon" href="https://static.developer.riotgames.com/img/favicon.png" type="image/ico">
-  <link rel="stylesheet" type="text/css" href="./Riot Developer Portal_files/lol-fonts.css">
-  <link rel="stylesheet" href="./Riot Developer Portal_files/new.1.6.7.css">
-  <script src="./Riot Developer Portal_files/osano.js.stažený soubor"></script>
-  <script src="./Riot Developer Portal_files/jquery-1.12.4.js.stažený soubor"></script>
-  <script src="./Riot Developer Portal_files/jquery-ui.js.stažený soubor"></script>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async="" src="./Riot Developer Portal_files/js" type="osano/blocked"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-  
-    gtag('config', 'G-P6MFXZQDPE');
-  </script>
-  <script type="text/javascript">
-    (function(t,l){
-        let w=window,d=document,s=d.createElement("script"),f=d.getElementsByTagName("script")[0];
-        w[t]=w[t]||function(){(w["_rgea"]=w["_rgea"]||[["uts",new Date()]]).push(Array.prototype.slice.call(arguments));w.RGEA&&w.RGEA.p();};
-        s.type="text/javascript"; s.async=true; s.defer=true; s.src=l; f.parentNode.insertBefore(s,f);
-    })("rgea", "https://static.developer.riotgames.com/js/rgea.min.js");
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>Statistiky hráčů</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #1e1e2f;
+      color: #f0f0f0;
+      margin: 0;
+      padding: 20px;
+    }
 
-    rgea("propertyId", "RGEA0001-086f1365-1c20-4f66-8ea6-7f01a5a9479d");
-    rgea("anonymous", false);
-</script>
+    h1 {
+      text-align: center;
+      color: #ffd700;
+      margin-bottom: 10px;
+    }
+
+    #controls {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    select {
+      background-color: #2c2c3c;
+      color: #fff;
+      padding: 5px 10px;
+      border: 1px solid #555;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    #grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .player-card {
+      background-color: #2c2c3c;
+      border-radius: 12px;
+      padding: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .player-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .team-logo {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 8px;
+    }
+
+    .player-name {
+      font-weight: bold;
+      font-size: 16px;
+      margin-bottom: 6px;
+      color: #ffffff;
+    }
+
+    .player-info {
+      font-size: 13px;
+      color: #aaaaaa;
+      margin: 4px 0;
+    }
+
+    .highlight {
+      color: #ffd700;
+      font-weight: bold;
+    }
+  </style>
 </head>
-<body class="bg-color1"><div data-nosnippet="" class="osano-cm-window" dir="ltr"><!----> <!--?lit$426354772$--><div hidden="" class="osano-visually-hidden"> <span id="osano-cm-aria.newWindow"><!--?lit$426354772$-->Otevře se v novém okně</span> <span id="osano-cm-aria.external"><!--?lit$426354772$-->Otevře externí web</span> <span id="osano-cm-aria.externalNewWindow"><!--?lit$426354772$-->Otevře externí web v novém okně</span> </div> <!--?lit$426354772$--> <div role="dialog" id="b6041880-a84b-402b-9c83-615315bc744e" aria-label="Banner souhlasu se soubory cookie" aria-describedby="b6041880-a84b-402b-9c83-615315bc744e__label" class=" osano-cm-window__dialog osano-cm-dialog osano-cm-dialog--hidden osano-cm-dialog--position_bottom osano-cm-dialog--type_bar "> <!--?lit$426354772$--> <button class=" osano-cm-dialog__close osano-cm-close "> <!--?lit$426354772$--><svg width="20px" height="20px" viewBox="0 0 20 20" role="img" aria-labelledby="a3a3e188-3bd2-4b7f-a8d7-0883d9fdca40"> <title id="a3a3e188-3bd2-4b7f-a8d7-0883d9fdca40"><!---->Zavřete tento dialog<!----></title> <line role="presentation" x1="2" y1="2" x2="18" y2="18"></line> <line role="presentation" x1="2" y1="18" x2="18" y2="2"></line> </svg> </button>  <div class=" osano-cm-dialog__content osano-cm-content "> <!--?lit$426354772$--> <span id="b6041880-a84b-402b-9c83-615315bc744e__label" class=" osano-cm-content__message osano-cm-message "> <!--?lit$426354772$-->Tento web využívá technologie, jako jsou soubory cookie, aby umožnily základní funkce webu, a také pro analýza, personalizace a cílená reklama. <!--?lit$426354772$-->Nastavení můžete kdykoli změnit nebo přijmout výchozí nastavení. <!--?lit$426354772$-->Tento banner můžete zavřít a pokračovat pouze se základními soubory cookie. </span>  <!--?lit$426354772$--> <!--?lit$426354772$--><!--?lit$426354772$--><a rel="noopener" tabindex="0" href="https://www.riotgames.com/en/privacy-notice" target="_blank" class=" osano-cm-storage-policy osano-cm-content__link osano-cm-link " aria-describedby="osano-cm-aria.newWindow"><!--?lit$426354772$-->Ochrana osobních údajů</a><!--?--><!--?lit$426354772$--> <!--?lit$426354772$--> <p class=" osano-cm-content__drawer-links osano-cm-drawer-links "> <!--?lit$426354772$--><a rel="noopener" tabindex="0" href="https://developer.riotgames.com/docs/lol#8f15675b-9043-45a8-bcab-44f8fbcccbf7" class=" osano-cm-drawer-links__link osano-cm-link osano-cm-link--type_manage "><!--?lit$426354772$-->Nastavení ukládání</a> <!--?lit$426354772$--> </p>  <!--?lit$426354772$--><div role="group" aria-labelledby="osano-cm-dialog-toggle-group"> <!--?lit$426354772$--><ul id="osano-cm-dialog-toggle-group" class="osano-cm-dialog__list osano-cm-list" role="list" aria-label="Nastavení ukládání"> <!--?lit$426354772$--><!----><li class=" osano-cm-list__list-item osano-cm-list-item "> <!--?lit$426354772$--><label class=" osano-cm-list-item__toggle osano-cm-toggle " for="osano-cm-dialog-toggle--category_MARKETING"><input type="checkbox" role="switch" class=" osano-cm-toggle__input osano-cm-input " id="osano-cm-dialog-toggle--category_MARKETING" data-category="MARKETING" tabindex="-1"><span class=" osano-cm-toggle__switch osano-cm-switch "></span><span class=" osano-cm-toggle__label osano-cm-label "><!--?lit$426354772$-->Cílená reklama</span></label> </li><!----><!----><li class=" osano-cm-list__list-item osano-cm-list-item "> <!--?lit$426354772$--><label class=" osano-cm-list-item__toggle osano-cm-toggle " for="osano-cm-dialog-toggle--category_PERSONALIZATION"><input type="checkbox" role="switch" class=" osano-cm-toggle__input osano-cm-input " id="osano-cm-dialog-toggle--category_PERSONALIZATION" data-category="PERSONALIZATION" tabindex="-1"><span class=" osano-cm-toggle__switch osano-cm-switch "></span><span class=" osano-cm-toggle__label osano-cm-label "><!--?lit$426354772$-->Personalizace</span></label> </li><!----><!----><li class=" osano-cm-list__list-item osano-cm-list-item "> <!--?lit$426354772$--><label class=" osano-cm-list-item__toggle osano-cm-toggle " for="osano-cm-dialog-toggle--category_ANALYTICS"><input type="checkbox" role="switch" class=" osano-cm-toggle__input osano-cm-input " id="osano-cm-dialog-toggle--category_ANALYTICS" data-category="ANALYTICS" tabindex="-1"><span class=" osano-cm-toggle__switch osano-cm-switch "></span><span class=" osano-cm-toggle__label osano-cm-label "><!--?lit$426354772$-->Analýza</span></label> </li><!----> </ul> </div> </div> <!--?lit$426354772$--> <div class=" osano-cm-dialog__buttons osano-cm-buttons osano-cm-buttons--disabled "> <!--?lit$426354772$--><!--?lit$426354772$--><!--?lit$426354772$--><button class=" osano-cm-save osano-cm-buttons__button osano-cm-button osano-cm-button--type_save " tabindex="0"> <!--?lit$426354772$-->Uložit </button><!--?--><!--?--> <!--?lit$426354772$--><!--?lit$426354772$--><button class=" osano-cm-accept-all osano-cm-buttons__button osano-cm-button osano-cm-button--type_accept " tabindex="0"> <!--?lit$426354772$-->Přijmout vše </button><!--?--> <!--?lit$426354772$--><!--?lit$426354772$--><!--?lit$426354772$--><button class=" osano-cm-denyAll osano-cm-buttons__button osano-cm-button osano-cm-button--type_denyAll " tabindex="0"> <!--?lit$426354772$-->Odmítnout vše </button><!--?--><!--?--> </div>  </div>  <!--?lit$426354772$--> <button id="0e0306b8-c309-49b0-8c7b-cb93e71c774d" class="osano-cm-window__widget osano-cm-widget osano-cm-widget--position_right" title="Nastavení souborů cookie" aria-label="Nastavení souborů cookie"> <svg role="img" width="40" height="40" viewBox="0 0 71.85 72.23" xmlns="http://www.w3.org/2000/svg" aria-labelledby="0e0306b8-c309-49b0-8c7b-cb93e71c774d"> <path d="m67.6 36.73a6.26 6.26 0 0 1 -3.2-2.8 5.86 5.86 0 0 0 -5.2-3.1h-.3a11 11 0 0 1 -11.4-9.5 6 6 0 0 1 -.1-1.4 9.2 9.2 0 0 1 .4-2.9 8.65 8.65 0 0 0 .2-1.6 5.38 5.38 0 0 0 -1.9-4.3 7.3 7.3 0 0 1 -2.5-5.5 3.91 3.91 0 0 0 -3.5-3.9 36.46 36.46 0 0 0 -15 1.5 33.14 33.14 0 0 0 -22.1 22.7 35.62 35.62 0 0 0 -1.5 10.2 34.07 34.07 0 0 0 4.8 17.6.75.75 0 0 0 .07.12c.11.17 1.22 1.39 2.68 3-.36.47 5.18 6.16 5.65 6.52a34.62 34.62 0 0 0 55.6-21.9 4.38 4.38 0 0 0 -2.7-4.74z" stroke-width="3" class=" osano-cm-widget__outline osano-cm-outline "></path> <path d="m68 41.13a32.37 32.37 0 0 1 -52 20.5l-2-1.56c-2.5-3.28-5.62-7.15-5.81-7.44a32 32 0 0 1 -4.5-16.5 34.3 34.3 0 0 1 1.4-9.6 30.56 30.56 0 0 1 20.61-21.13 33.51 33.51 0 0 1 14.1-1.4 1.83 1.83 0 0 1 1.6 1.8 9.38 9.38 0 0 0 3.3 7.1 3.36 3.36 0 0 1 1.2 2.6 3.37 3.37 0 0 1 -.1 1 12.66 12.66 0 0 0 -.5 3.4 9.65 9.65 0 0 0 .1 1.7 13 13 0 0 0 10.5 11.2 16.05 16.05 0 0 0 3.1.2 3.84 3.84 0 0 1 3.5 2 10 10 0 0 0 4.1 3.83 2 2 0 0 1 1.4 2z" stroke-width="3" class=" osano-cm-widget__outline osano-cm-outline "></path> <g class=" osano-cm-widget__dot osano-cm-dot "> <path d="m26.6 31.43a5.4 5.4 0 1 1 5.4-5.43 5.38 5.38 0 0 1 -5.33 5.43z"></path> <path d="m25.2 53.13a5.4 5.4 0 1 1 5.4-5.4 5.44 5.44 0 0 1 -5.4 5.4z"></path> <path d="m47.9 52.33a5.4 5.4 0 1 1 5.4-5.4 5.32 5.32 0 0 1 -5.24 5.4z"></path> </g> </svg> </button>  <!--?lit$426354772$--><div role="dialog" aria-modal="true" id="8f15675b-9043-45a8-bcab-44f8fbcccbf7" aria-labelledby="8f15675b-9043-45a8-bcab-44f8fbcccbf7__label" aria-hidden="true" class=" osano-cm-window__info-dialog osano-cm-info-dialog osano-cm-info-dialog--hidden "> <!--?lit$426354772$--><!--?lit$426354772$--><span tabindex="0" aria-hidden="true" data-focus="first"></span><!--?--> <div role="presentation" class=" osano-cm-info-dialog__info osano-cm-info osano-cm-info--position_right "> <!--?lit$426354772$--><div role="presentation" class=" osano-cm-info__info-dialog-header osano-cm-info-dialog-header "> <p role="heading" aria-level="1" id="8f15675b-9043-45a8-bcab-44f8fbcccbf7__label" class=" osano-cm-info-dialog-header__header osano-cm-header "> <!--?lit$426354772$--> </p> <!--?lit$426354772$--> <button class=" osano-cm-info-dialog-header__close osano-cm-close "> <!--?lit$426354772$--><svg width="20px" height="20px" viewBox="0 0 20 20" role="img" aria-labelledby="03b75383-9d6f-4534-ab69-1bac9ac815a6"> <title id="03b75383-9d6f-4534-ab69-1bac9ac815a6"><!---->Zavřete předvolby souborů cookie<!----></title> <line role="presentation" x1="2" y1="2" x2="18" y2="18"></line> <line role="presentation" x1="2" y1="18" x2="18" y2="2"></line> </svg> </button> <!--?lit$426354772$--> </div> <div role="presentation" class=" osano-cm-info__info-views osano-cm-info-views osano-cm-info-views--hidden osano-cm-info-views--position_0 "> <!--?lit$426354772$--> </div> </div> <!--?lit$426354772$--><!--?lit$426354772$--><span tabindex="0" aria-hidden="true" data-focus="last"></span><!--?--> </div> </div>
-<div class="container">
-  <div class="navbar bg-color1">
-    <div class="navbar-logo">
-      <a href="https://developer.riotgames.com/"><img src="./Riot Developer Portal_files/logo.png"></a>
-    </div>
-    <button type="button" class="navbar-toggler">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="navbar-menu">
-      <ul>
-        <li><a href="https://developer.riotgames.com/apis">APIs</a></li>
-        <li>
-          <div class="dropdown">
-            <a>Docs</a>
-            <div class="dropdown-content">
-              <a href="https://developer.riotgames.com/docs/portal">Developer Portal</a>
-              <a href="https://developer.riotgames.com/docs/lol">League of Legends</a>
-              <a href="https://developer.riotgames.com/docs/lor">Legends of Runeterra</a>
-              <a href="https://developer.riotgames.com/docs/tft">Teamfight Tactics</a>
-              <a href="https://developer.riotgames.com/docs/valorant">Valorant</a>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="dropdown">
-            <a>Policies</a>
-            <div class="dropdown-content">
-              <a href="https://developer.riotgames.com/policies/general">General</a>
-              <a href="https://developer.riotgames.com/policies/game-specific">Game Specific</a>
-            </div>
-          </div>
-        </li>
-        <li><a href="https://developer.riotgames.com/docs/faqs">Faqs</a></li>
-        <li>
-          <div class="dropdown">
-            <a>Channels</a>
-            <div class="dropdown-content">
-              <a href="https://www.riotgames.com/en/DevRel" target="_blank">Blog</a>
-              <a href="https://twitter.com/RiotGamesDevRel" target="_blank">Twitter</a>
-              <a href="https://discord.gg/riotgamesdevrel" target="_blank">Discord</a>
-              <a href="https://github.com/RiotGames/developer-relations/issues" target="_blank">Issue Tracker</a>
-            </div>
-          </div>
-        </li>
-        <li><a href="https://support-developer.riotgames.com/">Support</a></li>
-
-      </ul>
-
-      <ul><li><a href="https://developer.riotgames.com/login">Login</a></li></ul>
-    </div>
-
+<body>
+  <h1>Statistiky hráčů</h1>
+  <div id="controls">
+    <label for="sortSelect">Řadit podle:</label>
+    <select id="sortSelect">
+      <option value="KDA">KDA</option>
+      <option value="MVP">MVP</option>
+      <option value="Kills">Kills</option>
+      <option value="Tým">Tým</option>
+      <option value="Role">Pozice (Role)</option>
+    </select>
   </div>
-  <div class="layout">
-    <div class="sidebar">
-      <div class="menu">
-        
-        
-        <div class="section indent">
-          <header><a href="https://developer.riotgames.com/docs/lol#developer-api-policy">Developer API Policy</a></header>
-          <div><a href="https://developer.riotgames.com/docs/lol#developer-api-policy_registration">Registration</a></div><div><a href="https://developer.riotgames.com/docs/lol#developer-api-policy_monetization">Monetization</a></div><div><a href="https://developer.riotgames.com/docs/lol#developer-api-policy_security">Security</a></div><div><a href="https://developer.riotgames.com/docs/lol#developer-api-policy_game-integrity">Game Integrity</a></div><div><a href="https://developer.riotgames.com/docs/lol#developer-api-policy_tournament-policies">Tournament Policies</a></div>
-        
-        </div>
-        
-        <div class="section indent">
-          <header><a href="https://developer.riotgames.com/docs/lol#summoner-names-to-riot-ids">Summoner Names to Riot IDs</a></header>
-          <div><a href="https://developer.riotgames.com/docs/lol#summoner-names-to-riot-ids_obtaining-puuid-and-summonerid-from-riotid">Obtaining PUUID and summonerID from RiotID</a></div><div><a href="https://developer.riotgames.com/docs/lol#summoner-names-to-riot-ids_obtaining-riot-id-from-puuid">Obtaining Riot ID from PUUID</a></div><div><a href="https://developer.riotgames.com/docs/lol#summoner-names-to-riot-ids_obtaining-riot-id-from-summonerid">Obtaining Riot ID from summonerID</a></div><div><a href="https://developer.riotgames.com/docs/lol#summoner-names-to-riot-ids_summoner-names-post-migration">Summoner Names Post Migration</a></div>
-        
-        </div>
-        
-        <div class="section indent">
-          <header><a href="https://developer.riotgames.com/docs/lol#game-policy">Game Policy</a></header>
-          <div><a href="https://developer.riotgames.com/docs/lol#game-policy_use-cases-for-production-keys">Use Cases for Production Keys</a></div>
-        
-        </div>
-        
-        <div class="section indent">
-          <header><a href="https://developer.riotgames.com/docs/lol#rso-integration">RSO Integration</a></header>
-          <div><a href="https://developer.riotgames.com/docs/lol#rso-integration_getting-a-production-key">Getting a Production Key</a></div><div><a href="https://developer.riotgames.com/docs/lol#rso-integration_implementing-rso">Implementing RSO</a></div>
-        
-        </div>
-        
-        <div class="section indent">
-          <header><a href="https://developer.riotgames.com/docs/lol#routing-values">Routing Values</a></header>
-          <div><a href="https://developer.riotgames.com/docs/lol#routing-values_platform-routing-values">Platform Routing Values</a></div><div><a href="https://developer.riotgames.com/docs/lol#routing-values_regional-routing-values">Regional Routing Values</a></div>
-        
-        </div>
-        
-        <div class="section indent">
-          <header><a href="https://developer.riotgames.com/docs/lol#data-dragon">Data Dragon</a></header>
-          <div><a href="https://developer.riotgames.com/docs/lol#data-dragon_versions">Versions</a></div><div><a href="https://developer.riotgames.com/docs/lol#data-dragon_regions">Regions</a></div><div><a href="https://developer.riotgames.com/docs/lol#data-dragon_data-assets">Data &amp; Assets</a></div><div><a href="https://developer.riotgames.com/docs/lol#data-dragon_champions">Champions</a></div><div><a href="https://developer.riotgames.com/docs/lol#data-dragon_items">Items</a></div><div><a href="https://developer.riotgames.com/docs/lol#data-dragon_other">Other</a></div>
-        
-        </div>
-        
-        <div class="section indent">
-          <header><a href="https://developer.riotgames.com/docs/lol#tournament-api">Tournament API</a></header>
-          <div><a href="https://developer.riotgames.com/docs/lol#tournament-api_best-practices">Best Practices</a></div><div><a href="https://developer.riotgames.com/docs/lol#tournament-api_tournament-api-notes">Tournament API Notes</a></div><div><a href="https://developer.riotgames.com/docs/lol#tournament-api_use-case-example">Use Case Example</a></div><div><a href="https://developer.riotgames.com/docs/lol#tournament-api_tournaments-api-methods">Tournaments API Methods</a></div><div><a href="https://developer.riotgames.com/docs/lol#tournament-api_generating-tournament-codes">Generating Tournament Codes</a></div><div><a href="https://developer.riotgames.com/docs/lol#tournament-api_server-callback">Server Callback</a></div><div><a href="https://developer.riotgames.com/docs/lol#tournament-api_lobby-events">Lobby Events</a></div>
-        
-        </div>
-        
-        <div class="section indent">
-          <header><a href="https://developer.riotgames.com/docs/lol#league-client-api">League Client API</a></header>
-          
-        
-        </div>
-        
-        <div class="section indent">
-          <header><a href="https://developer.riotgames.com/docs/lol#game-client-api">Game Client API</a></header>
-          <div><a href="https://developer.riotgames.com/docs/lol#game-client-api_root-certificatessl-errors">Root Certificate/SSL Errors</a></div><div><a href="https://developer.riotgames.com/docs/lol#game-client-api_swagger">Swagger</a></div><div><a href="https://developer.riotgames.com/docs/lol#game-client-api_live-client-data-api">Live Client Data API</a></div><div><a href="https://developer.riotgames.com/docs/lol#game-client-api_replay-api">Replay API</a></div>
-        
-        </div>
-        
-        <div class="section indent">
-          <header><a href="https://developer.riotgames.com/docs/lol#working-with-lol-apis">Working with LoL APIs</a></header>
-          <div><a href="https://developer.riotgames.com/docs/lol#working-with-lol-apis_game-constants">Game Constants</a></div><div><a href="https://developer.riotgames.com/docs/lol#working-with-lol-apis_ranked-info">Ranked Info</a></div>
-        
-        </div>
-        
-        <div class="section indent">
-          <header><a href="https://developer.riotgames.com/docs/lol#getting-help-and-staying-up-to-date">Getting Help and Staying Up-to-date</a></header>
-          
-        
-        </div>
-      </div>
-      <div class="sidebar-footer">
-        <div class="footer-social">
-          <a href="https://twitter.com/RiotGamesDevRel" target="_blank">
-            <div class="twitter">
-              <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"></path>
-              </svg>
-            </div>
-          </a>
-          <a href="https://discord.gg/riotgamesdevrel" target="_blank">
-            <div class="discord">
-              <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20.222 0c1.406 0 2.54 1.137 2.607 2.475V24l-2.677-2.273-1.47-1.338-1.604-1.398.67 2.205H3.71c-1.402 0-2.54-1.065-2.54-2.476V2.48C1.17 1.142 2.31.003 3.715.003h16.5L20.222 0zm-6.118 5.683h-.03l-.202.2c2.073.6 3.076 1.537 3.076 1.537-1.336-.668-2.54-1.002-3.744-1.137-.87-.135-1.74-.064-2.475 0h-.2c-.47 0-1.47.2-2.81.735-.467.203-.735.336-.735.336s1.002-1.002 3.21-1.537l-.135-.135s-1.672-.064-3.477 1.27c0 0-1.805 3.144-1.805 7.02 0 0 1 1.74 3.743 1.806 0 0 .4-.533.805-1.002-1.54-.468-2.14-1.404-2.14-1.404s.134.066.335.2h.06c.03 0 .044.015.06.03v.006c.016.016.03.03.06.03.33.136.66.27.93.4.466.202 1.065.403 1.8.536.93.135 1.996.2 3.21 0 .6-.135 1.2-.267 1.8-.535.39-.2.87-.4 1.397-.737 0 0-.6.936-2.205 1.404.33.466.795 1 .795 1 2.744-.06 3.81-1.8 3.87-1.726 0-3.87-1.815-7.02-1.815-7.02-1.635-1.214-3.165-1.26-3.435-1.26l.056-.02zm.168 4.413c.703 0 1.27.6 1.27 1.335 0 .74-.57 1.34-1.27 1.34-.7 0-1.27-.6-1.27-1.334.002-.74.573-1.338 1.27-1.338zm-4.543 0c.7 0 1.266.6 1.266 1.335 0 .74-.57 1.34-1.27 1.34-.7 0-1.27-.6-1.27-1.334 0-.74.57-1.338 1.27-1.338z"></path>
-              </svg>
-            </div>
-          </a>
-          <a href="https://github.com/RiotGames/developer-relations/issues" target="_blank">
-            <div class="github">
-              <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path>
-              </svg>
-            </div>
-          </a>
-        </div>
-        <div class="footer-links">
-          <a href="https://developer.riotgames.com/terms">Terms</a>&nbsp;&nbsp;·&nbsp;&nbsp;
-          <a href="https://www.riotgames.com/en/privacy-notice">Privacy</a>
-        </div>
-        <div class="footer-copyright">© 2021 Riot Games, Inc. All rights reserved. League of Legends and Riot Games are trademarks, service marks, and registered trademarks of Riot Games, Inc.</div>
 
-      </div>
-    </div>
-    <div class="content-container">
-      <a id="top"></a>
-      <div class="content">
-        <div class="content-title">League of Legends</div>
-        
-<h1 id="developer-api-policy">Developer API Policy</h1>
-<p>Before you begin, read through the <a href="https://developer.riotgames.com/policies/general">General</a> and <a href="https://developer.riotgames.com/docs/lol#game-policy">Game Policies</a>, <a href="https://developer.riotgames.com/terms">Terms of Use</a> and <a href="https://www.riotgames.com/en/legal">Legal Notices</a>. Developers must adhere to policy changes as they arise.</p>
-<p>When developing using the API, you must abide by the following: </p>
-<ul>
-<li>Products cannot violate any laws.</li>
-<li>Do not create or develop games utilizing Riot’s Intellectual Property (IP).</li>
-<li>No cryptocurrencies or no blockchain.</li>
-<li>No apps serving as a “data broker” between our API and another third-party company.</li>
-<li>Products cannot closely resemble Riot’s games or products in style or function.</li>
-<li>Only the following Riot IP assets may be used in the development and marketing of your product:<ul>
-<li>Press kit</li>
-<li>Example: Using Riot logos and trademarks from the Press Kit must be limited to cases where such use is unavoidable in order to serve the core value of the product.</li>
-<li>Game-Specific static data</li>
-</ul>
-</li>
-<li>You must post the following legal boilerplate to your product in a location that is readily visible to players:<ul>
-<li>[Your Product Name] is not endorsed by Riot Games and does not reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. Riot Games and all associated properties are trademarks or registered trademarks of Riot Games, Inc</li>
-</ul>
-</li>
-</ul>
-<h2 id="developer-api-policy_registration">Registration</h2>
-<p>If your product serves players, you must register it with us regardless of whether or not your product uses official documented APIs. You must make sure its description and metadata are kept up to date with the current version of your product.</p>
-<h2 id="developer-api-policy_monetization">Monetization</h2>
-<p>To monetize your product, you must abide by the following:</p>
-<ul>
-<li>Your product cannot feature betting or gambling functionality.</li>
-<li>Your product must be registered on the Developer Portal and your product status is either Approved or Acknowledged.</li>
-<li>You must have a free tier of access for players, which may include advertising.</li>
-<li>Your content must be transformative if you are charging players for it.<ul>
-<li>What is transformative?<ul>
-<li>Was value added to the original by creating new information, new aesthetics, new insights, and understandings? If so, then it was transformative.</li>
-</ul>
-</li>
-<li>Acceptable ways to charge players are:<ul>
-<li>Subscriptions, donations, or crowdfunding.</li>
-<li>Entry fees for tournaments.</li>
-<li>Currencies that cannot be exchanged back into fiat.</li>
-</ul>
-</li>
-<li>Your monetization cannot gouge players or be unfair, as decided by Riot.</li>
-</ul>
-</li>
-</ul>
-<p>If you are unsure if your monetization platform is acceptable, contact us through the Developer Portal.</p>
-<h2 id="developer-api-policy_security">Security</h2>
-<p>You must adhere to the following security policies:</p>
-<ul>
-<li>Do not share your Riot Games account information with anyone.</li>
-<li>Do not use a Production API key to run multiple projects. You may only have one product per key.</li>
-<li>Use SSL/HTTPS when accessing the APIs so your API key is kept safe.</li>
-<li>Your API key may not be included in your code, especially if you plan on distributing a binary.<ul>
-<li>This key should only be shared with your teammates. If you need to share an API key for your product with teammates, make sure your product is owned by a group in the Developer portal. Add additional accounts to that account as needed.</li>
-</ul>
-</li>
-</ul>
-<h2 id="developer-api-policy_game-integrity">Game Integrity</h2>
-<ul>
-<li>Products must not use or incorporate information not present in the game client that would give players a competitive edge (e.g., automatically or manually allowing tracking enemy ultimate cooldowns), especially when such data is not already accessible through regular gameplay.</li>
-<li>Products cannot alter the goal of the game (i.e. Destroy the Nexus).</li>
-<li>Products cannot create an unfair advantage for players, like a cheating program or giving some players an advantage that others would not otherwise have.</li>
-<li>Products should increase, and not decrease the diversity of game decisions (builds, compositions, characters, decks).</li>
-<li>Products should not remove game decisions, but may highlight decisions that are important and give multiple choices to help players make good decisions.</li>
-<li>Products cannot create alternatives for official skill ranking systems such as the ranked ladder. Prohibited alternatives include MMR or ELO calculators.</li>
-<li>Products cannot identify or analyze players who are deliberately hidden by the game.</li>
-</ul>
-<h2 id="developer-api-policy_tournament-policies">Tournament Policies</h2>
-<ul>
-<li>Tournaments must:<ul>
-<li>Follow all monetization policies above.</li>
-<li>Allot at least 70% of the entry fees to the prize pool.</li>
-<li>Win conditions must be fair and transparent to players (we determine fair).</li>
-<li>Must have at least 20 participants.</li>
-<li>Not include any gambling.</li>
-</ul>
-</li>
-<li>If you are a tournament organizer operating in the US or Canada please refer to, and adhere to, these <a href="https://developer.riotgames.com/policies/na-tournaments">North American tournament organizer policies</a>.</li>
-<li>If you are a tournament organizer operating in Europe, please refer to, and adhere to, these <a href="https://riot.eurcommunitycompetition.com/games/league-of-legends/guidelines">European tournament organizer policies</a>.</li>
-</ul>
-<style>
+  <div id="grid">Načítám data...</div>
 
-/* Removes Grey Cell Background */
-.content table>tbody>tr:nth-of-type(even)
-{
-      background-color: transparent;!important;
-}
+  <script>
+    const csvData = `
+;Player;Kills;Deaths;Assists;KDA;Počet Her;MVP;Role;Tým
+28;ZEN;55;16;52;6,7;6;1;MID;Aligators
+49;STOMCI;55;27;67;4,5;7;1;ADC;Snakes
+62;SGOOB;52;23;39;4,0;6;3;JNG;Parrots
+27;KRYSTOF;46;18;68;6,3;6;1;JNG;Aligators
+38;PISLOU;45;9;40;9,4;5;1;MID;Tigers
+43;MABE;45;22;56;4,6;6;0;MID;Iguana
+67;MICHAL;44;34;40;2,5;7;1;JNG;Flamingo
+24;WODR;43;20;49;4,6;6;1;ADC;Kangaroo
+52;MORPHED;42;25;60;4,1;6;0;JNG;Capybara
+9;447;42;20;34;3,8;6;0;ADC;Bears
+34;ERNIE;40;32;34;2,3;6;1;ADC;Pandas
+79;BRTA;39;20;37;3,8;7;1;ADC;Wolves
+69;LENNY;38;22;33;3,2;7;0;ADC;Flamingo
+54;SIMBA;38;28;42;2,9;6;0;ADC;Capybara
+53;XERUTH;37;18;31;3,8;4;1;MID;Capybara
+44;ECLIPSE;37;24;47;3,5;6;0;ADC;Iguana
+59;ASTRO;37;29;43;2,8;6;0;ADC;Lions
+57;MIRACLE;35;21;56;4,3;6;2;JNG;Lions
+23;PANDA;35;21;48;4,0;6;3;MID;Kangaroo
+48;LOVECOURY;35;27;71;3,9;6;0;MID;Snakes
+41;BUZZ;34;18;41;4,2;6;0;TOP;Iguana
+37;DAO;31;20;51;4,1;5;0;JNG;Tigers
+47;RADEK;31;35;98;3,7;7;0;JNG;Snakes
+16;SOVAZ;31;25;21;2,1;6;2;TOP;Cheetahs
+39;VAJTAKK;30;20;39;3,5;5;0;ADC;Tigers
+12;SKENK;30;56;34;1,1;7;0;JNG;Sharks
+22;ARASHID;28;26;64;3,5;6;0;JNG;Kangaroo
+18;AMITH;27;26;30;2,2;6;0;MID;Cheetahs
+76;BLAZE;26;13;29;4,2;7;0;TOP;Wolves
+72;KESSIG;26;15;37;4,2;4;0;JNG;Whales
+3;SAJOX;26;18;36;3,4;5;0;MID;Monitors
+21;ALKO;26;12;14;3,3;6;0;TOP;Kangaroo
+26;POLI;25;7;36;8,7;5;1;TOP;Aligators
+29;VALIS;25;18;67;5,1;6;1;ADC;Aligators
+4;PREDATOR;25;12;36;5,1;5;1;ADC;Monitors
+6;LAGIER;25;23;30;2,4;6;1;TOP;Bears
+78;NUGY;24;26;51;2,9;7;0;MID;Wolves
+66;LADIK;24;27;41;2,4;7;1;TOP;Flamingo
+68;ASMO;24;31;47;2,3;7;1;MID;Flamingo
+33;PILOT;24;25;32;2,2;6;0;MID;Pandas
+63;WENDSD;24;25;30;2,2;6;0;MID;Parrots
+13;KUBIK;24;43;38;1,4;7;1;MID;Sharks
+74;UNSHEAD;23;15;36;3,9;4;1;ADC;Whales
+30;LAMA;22;15;88;7,3;6;2;SUP;Aligators
+2;WINNIK;22;19;45;3,5;5;0;JNG;Monitors
+8;DABLIK;21;25;41;2,5;6;2;MID;Bears
+14;RESTRICTED;21;40;22;1,1;6;0;ADC;Sharks
+50;JENIKK;20;45;111;2,9;7;0;SUP;Snakes
+17;MOREALL;20;26;52;2,8;6;0;JNG;Cheetahs
+73;MORDECAAY;20;24;37;2,4;4;0;MID;Whales
+58;POSTOLKA;20;20;25;2,3;4;2;MID;Lions
+46;BUCKO;19;11;24;3,9;3;0;TOP;Snakes
+77;TOOFAST;19;25;64;3,3;7;2;JNG;Wolves
+64;CLER;19;19;43;3,3;6;0;ADC;Parrots
+56;DARK;18;24;28;1,9;6;0;TOP;Lions
+19;RAIIDEN;17;13;36;4,1;6;0;ADC;Cheetahs
+11;POPO;17;46;19;0,8;7;0;TOP;Sharks
+45;DREAMERR;16;30;85;3,4;6;0;SUP;Iguana
+71;MATO;14;11;32;4,2;4;1;TOP;Whales
+36;MARMELADA;13;11;26;3,5;4;1;TOP;Tigers
+1;ALTEIAN;13;25;17;1,2;5;0;TOP;Monitors
+60;ERKO;12;26;87;3,8;6;0;SUP;Lions
+86;ZEZE;12;8;18;3,8;2;0;SUB;
+70;PLESOUN;11;23;71;3,6;7;1;SUP;Flamingo
+7;HOUBA;11;24;61;3,0;6;0;JNG;Bears
+87;FYLOUS;10;21;27;1,8;4;1;SUB;
+25;TEE;9;19;83;4,8;6;0;SUP;Kangaroo
+5;DEDA;9;22;58;3,0;5;1;SUP;Monitors
+61;HOLUB;9;19;42;2,7;6;0;TOP;Parrots
+42;ONIFUS;9;32;70;2,5;6;3;JNG;Iguana
+91;RESTRICTED2;9;9;10;2,1;1;0;SUB;
+31;GABEQ;9;27;29;1,4;6;0;TOP;Pandas
+90;GUMA;8;6;13;3,5;1;0;SUB;
+81;JIRKOS;8;6;4;2,0;2;0;SUB;
+51;XPEPE;8;29;40;1,7;6;1;TOP;Capybara
+15;MIA;5;46;55;1,3;7;0;SUP;Sharks
+32;HAJNEJ;5;26;20;1,0;3;0;JNG;Pandas
+85;LOSTY;4;1;14;18,0;1;0;SUB;
+75;MAJO;4;13;51;4,2;4;0;SUP;Whales
+35;MUFFI;4;28;71;2,7;6;1;SUP;Pandas
+20;NATYNA;4;28;55;2,1;6;0;SUP;Cheetahs
+92;LEXA;3;3;11;4,7;1;1;SUB;
+84;CHALEC;3;11;25;2,5;2;0;SUB;
+80;KIPEK;3;31;54;1,8;6;0;SUP;Wolves
+65;MAKIMA;2;8;70;9,0;6;0;SUP;Parrots
+10;DEAGLES;2;10;48;5,0;2;0;SUP;Bears
+83;VITAN;2;1;3;5,0;1;0;SUB;
+89;MANGO;2;7;9;1,6;1;0;SUB;
+40;HANI;1;11;86;7,9;5;2;SUP;Tigers
+55;MONIKAS;1;35;93;2,7;6;0;SUP;Capybara
+82;VENDY;0;3;17;5,7;1;0;SUB;
+88;8PEK;0;13;10;0,8;3;0;SUB;
+`.trim(); // ← zkrácená data (přidej všechna pokud chceš)
 
-/* Sets Border Width, Type, and Color for Leftmost Table Column Border */
-.content table tr th:first-child, .content table tr td:first-child
-{
-      border-left: 1px solid #000;
-}
+    let players = [];
 
-/* Sets Background Color, Font Color, and Padding for Table Heading Row */
-.content table>thead tr th
-{
-      background: #000;
-      color: #ffffff!important;
-      padding: 6px 13px!important;
-}
+    document.addEventListener('DOMContentLoaded', () => {
+      parseCSV(csvData);
+      document.getElementById('sortSelect').addEventListener('change', () =>
+        renderGrid(document.getElementById('sortSelect').value)
+      );
+      renderGrid('KDA');
+    });
 
-/* Sets Border Width, Type and Color for Very Top Table Border */
-.content table tr th
-
-{
-      border-top: 1px solid #000;
-}
-
-/* Sets Border Width, Type, and Color for Bottom and Right Sides of Cells */
-.content table tr th, .content table tr td
-
-{
-      border-right:1px solid #000;
-      border-bottom:1px solid #000;
-}
-
-/* Adds 10px of Empty Space Before the Top of the H3 Heading */
-h3
-{
-      margin-top: 10px;
-}
-
-/* Adds 10px of Empty Space Before the Top of the H4 Heading */
-h4
-{
-      margin-top: 10px;
-}
-
-
-/* Removes Grey and White Lines from Code Block */
-.content pre>code
-
-{
-      background: #f7f7f9;
-}
-
-/* Changes Font Color of Inline Code Snippet to Black from Red */
-.content code
-{
-      color: #000;
-}
-
-</style>
-<h1 id="summoner-names-to-riot-ids">Summoner Names to Riot IDs</h1>
-<p>On November 20, 2023, we are transitioning our systems away from Summoner Names to using Riot ID as an authoritative way to reference players in League and TFT starting later this year. As such, you will need to make an update to the applicable API. Details for this transition can be found below.</p>
-<p>All player-facing front-end fields and forms will require modification. Applications featuring the "Find your Summoner by Region + Name" functionality must adapt to locate summoners using Riot IDs, which are formed by combining the "game name" and "tag line".</p>
-<p>For all other Riot API endpoints, filtering by player can be accomplished using either the PUUID or summonerID. Some APIs offer both options, but we recommend employing PUUID endpoints when available.</p>
-<p>We recommend no longer using these endpoints (deprecated):</p>
-<ul>
-<li><a href="https://developer.riotgames.com/apis#summoner-v4/GET_getBySummonerName">https://developer.riotgames.com/apis#summoner-v4/GET_getBySummonerName</a> - <code>/lol/summoner/v4/summoners/by-name/{summonerName}</code></li>
-<li><a href="https://developer.riotgames.com/apis#tft-summoner-v1/GET_getBySummonerName">https://developer.riotgames.com/apis#tft-summoner-v1/GET_getBySummonerName</a> - <code>/tft/summoner/v1/summoners/by-name/{summonerName}</code></li>
-</ul>
-<p>Although deprecated, they can still be used to convert Summoner Names to PUUID or summonerID. However, we discourage using them as part of your application since they will be removed in the future.</p>
-<h2 id="summoner-names-to-riot-ids_obtaining-puuid-and-summonerid-from-riotid">Obtaining PUUID and summonerID from RiotID</h2>
-<ul>
-<li>(ACCOUNT-V1) <a href="https://developer.riotgames.com/apis#account-v1/GET_getByRiotId">https://developer.riotgames.com/apis#account-v1/GET_getByRiotId</a> - Utilize the endpoint <code>/riot/account/v1/accounts/by-riot-id/{gameName}/{tagLine}</code> to obtain the PUUID associated with a given account by Riot ID (gameName + tagLine).</li>
-<li>(SUMMONER-V4) <a href="https://developer.riotgames.com/apis#summoner-v4/GET_getByPUUID">https://developer.riotgames.com/apis#summoner-v4/GET_getByPUUID</a> - Access the endpoint <code>/lol/summoner/v4/summoners/by-puuid/{encryptedPUUID}</code> to retrieve summoner data by PUUID, including summonerID.</li>
-</ul>
-<h2 id="summoner-names-to-riot-ids_obtaining-riot-id-from-puuid">Obtaining Riot ID from PUUID</h2>
-<p>For third-party apps, displaying Riot IDs in place of summoner names within frontend fields is now necessary. If you lack a Riot ID for a particular player in your database or wish to keep it up to date, you can acquire it through the following endpoints:</p>
-<ul>
-<li>(ACCOUNT-V1) <a href="https://developer.riotgames.com/apis#account-v1/GET_getByPuuid">https://developer.riotgames.com/apis#account-v1/GET_getByPuuid</a> - Use the endpoint <code>/riot/account/v1/accounts/by-puuid/{puuid}</code> to fetch account information (gameName + tagLine) by PUUID.</li>
-</ul>
-<h2 id="summoner-names-to-riot-ids_obtaining-riot-id-from-summonerid">Obtaining Riot ID from summonerID</h2>
-<p>In cases where you do not possess a PUUID for a player, you can employ the player's summonerID to obtain the PUUID:</p>
-<ul>
-<li>(SUMMONER-V4) <a href="https://developer.riotgames.com/apis#summoner-v4/GET_getBySummonerId">https://developer.riotgames.com/apis#summoner-v4/GET_getBySummonerId</a> - Access the endpoint <code>/lol/summoner/v4/summoners/{encryptedSummonerId}</code> to retrieve summoner data by summonerID, which can be used to obtain the corresponding PUUID.</li>
-</ul>
-<h2 id="summoner-names-to-riot-ids_summoner-names-post-migration">Summoner Names Post Migration</h2>
-<p>Following this migration, Summoner Names endpoints will remain accessible. However, they will no longer be player-facing. We intend to keep them temporarily to avoid disrupting existing APIs. For summoners created after this transition, they will be assigned a random uuidv4 generated string.</p>
-<p>We strongly advise utilizing this deprecation period to refactor your existing applications and remove reliance on the summoner names field. In future releases, we will remove summoner names from the API altogether.</p>
-<p>Example of a RiotID input:
-<img alt="RiotID Input" src="./Riot Developer Portal_files/riotid-input.png"></p>
-<p>Check our <a href="https://developer.riotgames.com/docs/summoner-name-to-riot-id-faq">FAQ</a> for more details!</p>
-<h1 id="game-policy">Game Policy</h1>
-<h2 id="game-policy_use-cases-for-production-keys">Use Cases for Production Keys</h2>
-<p>Production keys are meant for larger-size, professional projects.</p>
-<p>Riot analyzes two main factors when evaluating applications:</p>
-<ul>
-<li>Is the use case good and approved?</li>
-<li>Does the developer show they will deliver on that use case?</li>
-</ul>
-<p>To demonstrate that your app meets the use case, you should be able to have one or more of the following:</p>
-<ul>
-<li>Be an established brand that wants to add Riot Games to its portfolio.</li>
-<li>New app that is fully functional and testable by Riot.</li>
-<li>Prototype that is mostly testable by Riot.</li>
-<li>Mockups where Riot can clearly express your intent and the user flow.</li>
-<li>A deck that shows your ambition and intent and some of the user flow.</li>
-</ul>
-<p>Riot needs to see the user flow to understand what your intended player experience is, such as account creation process, login pipeline, or queuing up for match pipeline.</p>
-<p>You must also send a link to a working site, mockup, prototype, or rendering where it is easy to understand the user flows of the tool.</p>
-<h3 id="game-policy_examples-of-approved-use-cases-for-personal-keys">Examples of Approved Use Cases for Personal Keys</h3>
-<p>Personal keys are meant for smaller-size, personal projects.</p>
-<ul>
-<li>Personal sites.</li>
-<li>School projects.</li>
-<li>Creating a proof of concept for a Production Key request</li>
-<li>Examples of Approved Use Cases for Production Keys.</li>
-<li>Showing (self) player stats</li>
-<li>Running tournaments.</li>
-<li>Training tools that allow players to view their own match histories and aggregate stats.</li>
-<li>Looking For Game (LFG) tools.</li>
-<li>Game overlays that provide static data that is available prior to the game.</li>
-<li>Aggregate player stats (no specific players).</li>
-<li>Official Ladder Leaderboards.</li>
-</ul>
-<h3 id="game-policy_examples-of-unapproved-use-cases">Examples of Unapproved Use Cases</h3>
-<p>The following use cases will not be approved:</p>
-<ul>
-<li>Products cannot display win rates for Augments or Arena Mode items. This applies to all websites, applications and overlays.</li>
-<li>Products may not provide any game-session-specific information that would be previously unknown to the player.</li>
-<li>Apps that dictate player decisions.</li>
-<li>Apps that violate the general game policies.</li>
-<li>Products may not publicly display a player's match history from the custom match queue unless the player opts in to share this specifically for League of Legends. Otherwise, a player’s custom match data may only be made available to them using RSO.</li>
-</ul>
-<style>
-
-/* Removes Grey Cell Background */
-.content table>tbody>tr:nth-of-type(even)
-{
-    background-color: transparent;!important;
-}
-
-/* Sets Border Width, Type, and Color for Leftmost Table Column Border */
-.content table tr th:first-child, .content table tr td:first-child
-{
-    border-left: 1px solid #000;
-}
-
-/* Sets Background Color, Font Color, and Padding for Table Heading Row */
-.content table>thead tr th
-{
-    background: #000;
-    color: #ffffff!important;
-    padding: 6px 13px!important;
-}
-
-/* Sets Border Width, Type and Color for Very Top Table Border */
-.content table tr th
-
-{
-    border-top: 1px solid #000;
-}
-
-/* Sets Border Width, Type, and Color for Bottom and Right Sides of Cells */
-.content table tr th, .content table tr td
-
-{
-    border-right:1px solid #000;
-    border-bottom:1px solid #000;
-}
-
-/* Adds 10px of Empty Space Before the Top of the H3 Heading */
-h3
-{
-    margin-top: 10px;
-}
-
-/* Adds 10px of Empty Space Before the Top of the H4 Heading */
-h4
-{
-    margin-top: 10px;
-}
-
-
-/* Removes Grey and White Lines from Code Block */
-.content pre>code
-
-{
-    background: #f7f7f9;
-}
-
-/* Changes Font Color of Inline Code Snippet to Black from Red */
-.content code
-{
-    color: #000;
-}
-
-</style>
-<h1 id="rso-integration">RSO Integration</h1>
-<p>RSO or Riot Sign On, allows players to safely link their Riot Account to other applications. This access is only available to developers with Production Level API Keys.</p>
-<h2 id="rso-integration_getting-a-production-key">Getting a Production Key</h2>
-<p>Before you can get started with RSO, you will need a production key. If you do not have one, please create one at <a href="https://developer.riotgames.com/">https://developer.riotgames.com</a> after reading our <a href="https://developer.riotgames.com/policies/general">policies</a>. If approved, we will contact you in the developer portal app messaging to kick off the RSO integration process.</p>
-<h2 id="rso-integration_implementing-rso">Implementing RSO</h2>
-<p>RSO 
-- <a href="https://docs.google.com/document/d/1_8i2PvPA3edFHIh1IwfO5vs5rcl04O62Xfj0o7zCP3c/edit?pli=1">Client Secret Basic</a>
-- <a href="https://docs.google.com/document/d/e/2PACX-1vTSthxkWOIqPFe8Xqqjv4Ona5pRa5W3X6bLg4I47X15gJjG9ae-HU5a0by7VIVLWdPMgB9fTr5gvQcY/pub">Private Key JWT</a></p>
-<p>Sample RSO Node App: <a href="https://static.developer.riotgames.com/docs/rso/rso-example-app.zip">https://static.developer.riotgames.com/docs/rso/rso-example-app.zip</a></p>
-<p>Players should be directed to login at this link: <a href="https://auth.riotgames.com/authorize?client_id={your-client-id}&amp;redirect_uri={your-redirect-uri}&amp;response_type=code&amp;scope=openid+offline_access">https://auth.riotgames.com/authorize?client_id={your-client-id}&amp;redirect_uri={your-redirect-uri}&amp;response_type=code&amp;scope=openid+offline_access</a>.</p>
-<p>After logging in, players are redirected back to the redirect_uri you specified. See <a href="https://docs.google.com/document/d/1_8i2PvPA3edFHIh1IwfO5vs5rcl04O62Xfj0o7zCP3c/edit?pli=1">Implementing Riot Sign On</a> and <a href="https://static.developer.riotgames.com/docs/rso/rso-example-app.zip">Example RSO Node App</a> for information about how to integrate with RSO and to view a sample Node web server that implements the example.</p>
-<p>Your RSO client has access to endpoints that will allow you to identify who logged in.</p>
-<p>For Legends of Legends, you will use <a href="https://developer.riotgames.com/apis#account-v1/GET_getByAccessToken">/riot/account/v1/accounts/me</a>:</p>
-<pre><code>curl --location --request GET 'https://americas.api.riotgames.com/riot/account/v1/accounts/me' --header 'Authorization: Bearer {accessToken}'
-curl --location --request GET 'https://europe.api.riotgames.com/riot/account/v1/accounts/me' --header 'Authorization: Bearer {accessToken}' 
-curl --location --request GET 'https://asia.api.riotgames.com/riot/account/v1/accounts/me' --header 'Authorization: Bearer {accessToken}' 
-</code></pre>
-
-<p>The accounts data return from each cluster is identical. We recommend using the cluster closest to your servers.  </p>
-<style>
-
-/* Removes Grey Cell Background */
-.content table>tbody>tr:nth-of-type(even)
-{
-      background-color: transparent;!important;
-}
-
-/* Sets Border Width, Type, and Color for Leftmost Table Column Border */
-.content table tr th:first-child, .content table tr td:first-child
-{
-      border-left: 1px solid #000;
-}
-
-/* Sets Background Color, Font Color, and Padding for Table Heading Row */
-.content table>thead tr th
-{
-      background: #000;
-      color: #ffffff!important;
-      padding: 6px 13px!important;
-}
-
-/* Sets Border Width, Type and Color for Very Top Table Border */
-.content table tr th
-
-{
-      border-top: 1px solid #000;
-}
-
-/* Sets Border Width, Type, and Color for Bottom and Right Sides of Cells */
-.content table tr th, .content table tr td
-
-{
-      border-right:1px solid #000;
-      border-bottom:1px solid #000;
-}
-
-/* Adds 10px of Empty Space Before the Top of the H3 Heading */
-h3
-{
-      margin-top: 10px;
-}
-
-/* Adds 10px of Empty Space Before the Top of the H4 Heading */
-h4
-{
-      margin-top: 10px;
-}
-
-
-/* Removes Grey and White Lines from Code Block */
-.content pre>code
-
-{
-      background: #f7f7f9;
-}
-
-/* Changes Font Color of Inline Code Snippet to Black from Red */
-.content code
-{
-      color: #000;
-}
-
-</style>
-<h1 id="routing-values">Routing Values</h1>
-<p>To execute a request to the League of Legends (LoL) API, you must select the correct host to execute your request to. LoL API uses routing values in the domain to ensure your request is properly routed. Platform IDs and regions as routing values, such as <code>na1</code> and <code>americas</code>. Routing values are determined by the topology of the underlying services. Services are frequently clustered by platform resulting in platform IDs being used as routing values. Services may also be clustered by region, which is when regional routing values are used. The best way to tell if an endpoint uses a platform or a region as a routing value is to execute a sample request through the <a href="https://developer.riotgames.com/apis">Reference page</a>.</p>
-<h2 id="routing-values_platform-routing-values">Platform Routing Values</h2>
-<table>
-<thead>
-<tr>
-<th>Platform</th>
-<th>Host</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>BR1</td>
-<td>br1.api.riotgames.com</td>
-</tr>
-<tr>
-<td>EUN1</td>
-<td>eun1.api.riotgames.com</td>
-</tr>
-<tr>
-<td>EUW1</td>
-<td>euw1.api.riotgames.com</td>
-</tr>
-<tr>
-<td>JP1</td>
-<td>jp1.api.riotgames.com</td>
-</tr>
-<tr>
-<td>KR</td>
-<td>kr.api.riotgames.com</td>
-</tr>
-<tr>
-<td>LA1</td>
-<td>la1.api.riotgames.com</td>
-</tr>
-<tr>
-<td>LA2</td>
-<td>la2.api.riotgames.com</td>
-</tr>
-<tr>
-<td>NA1</td>
-<td>na1.api.riotgames.com</td>
-</tr>
-<tr>
-<td>OC1</td>
-<td>oc1.api.riotgames.com</td>
-</tr>
-<tr>
-<td>TR1</td>
-<td>tr1.api.riotgames.com</td>
-</tr>
-<tr>
-<td>RU</td>
-<td>ru.api.riotgames.com</td>
-</tr>
-<tr>
-<td>PH2</td>
-<td>ph2.api.riotgames.com</td>
-</tr>
-<tr>
-<td>SG2</td>
-<td>sg2.api.riotgames.com</td>
-</tr>
-<tr>
-<td>TH2</td>
-<td>th2.api.riotgames.com</td>
-</tr>
-<tr>
-<td>TW2</td>
-<td>tw2.api.riotgames.com</td>
-</tr>
-<tr>
-<td>VN2</td>
-<td>vn2.api.riotgames.com</td>
-</tr>
-</tbody>
-</table>
-<h2 id="routing-values_regional-routing-values">Regional Routing Values</h2>
-<table>
-<thead>
-<tr>
-<th>Region</th>
-<th>Host</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>AMERICAS</td>
-<td>americas.api.riotgames.com</td>
-</tr>
-<tr>
-<td>ASIA</td>
-<td>asia.api.riotgames.com</td>
-</tr>
-<tr>
-<td>EUROPE</td>
-<td>europe.api.riotgames.com</td>
-</tr>
-<tr>
-<td>SEA</td>
-<td>sea.api.riotgames.com</td>
-</tr>
-</tbody>
-</table>
-<h1 id="data-dragon">Data Dragon</h1>
-<p>Data Dragon is our way of centralizing League of Legends game data and assets, including champions, items, runes, summoner spells, and profile icons. All of which can be used by third-party developers. You can download a compressed tarball (.tgz) for each patch that  contains all assets for that patch. Updating Data Dragon after each League of Legends patch is a manual process, so it is not always updated immediately after a patch.</p>
-<p><strong>Latest</strong><br>
-<a href="https://ddragon.leagueoflegends.com/cdn/dragontail-15.11.1.tgz">https://ddragon.leagueoflegends.com/cdn/<strong>dragontail-15.11.1.tgz</strong></a>  </p>
-<p>Patch 10.10 was uploaded as a zip archive (.zip) instead of the typical compressed tarball (.tgz)<br>
-<a href="https://ddragon.leagueoflegends.com/cdn/dragontail-10.10.5.zip">https://ddragon.leagueoflegends.com/cdn/<strong>dragontail-10.10.5.zip</strong></a>   </p>
-<h2 id="data-dragon_versions">Versions</h2>
-<p>You can find all valid Data Dragon versions in the versions file. Typically there is only a single build of Data Dragon for a given patch, however, there may be additional builds. This typically occurs when there is an error in the original build. As such, you should always use the most recent Data Dragon version for a given patch for the best results.</p>
-<p><a href="https://ddragon.leagueoflegends.com/api/versions.json">https://ddragon.leagueoflegends.com/api/<strong>versions.json</strong></a></p>
-<h2 id="data-dragon_regions">Regions</h2>
-<p>Data Dragon versions are not always equivalent to the League of Legends client version in a region. You can find the version each region is using in the realms files.</p>
-<p><a href="https://ddragon.leagueoflegends.com/realms/na.json">https://ddragon.leagueoflegends.com/realms/<strong>na.json</strong></a>  </p>
-<h2 id="data-dragon_data-assets">Data &amp; Assets</h2>
-<p>Data Dragon provides two kinds of static data: data files and game assets. The data files provide raw static data on various components of the game such as summoner spells, champions, and items. The assets are images of the components described in the data files. </p>
-<h3 id="data-dragon_data-files">Data Files</h3>
-<p>The data file URLs include both a version and language code. The examples in the documentation below use version <code>15.11.1</code> and the <code>en_US</code> language code. If you want to view assets released in other versions or languages, replace the version or language code in the URL.</p>
-<h4 id="data-dragon_languages">Languages</h4>
-<p>Data Dragon provides localized versions of each of the data files in languages supported by the client. Below is a list of the languages supported by Data Dragon, which you can also retrieve from the Data Dragon languages file.</p>
-<p><a href="https://ddragon.leagueoflegends.com/cdn/languages.json">https://ddragon.leagueoflegends.com/cdn/<strong>languages.json</strong></a></p>
-<table>
-<thead>
-<tr>
-<th>CODE</th>
-<th>LANGUAGE</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>cs_CZ</td>
-<td>Czech (Czech Republic)</td>
-</tr>
-<tr>
-<td>el_GR</td>
-<td>Greek (Greece)</td>
-</tr>
-<tr>
-<td>pl_PL</td>
-<td>Polish (Poland)</td>
-</tr>
-<tr>
-<td>ro_RO</td>
-<td>Romanian (Romania)</td>
-</tr>
-<tr>
-<td>hu_HU</td>
-<td>Hungarian (Hungary)</td>
-</tr>
-<tr>
-<td>en_GB</td>
-<td>English (United Kingdom)</td>
-</tr>
-<tr>
-<td>de_DE</td>
-<td>German (Germany)</td>
-</tr>
-<tr>
-<td>es_ES</td>
-<td>Spanish (Spain)</td>
-</tr>
-<tr>
-<td>it_IT</td>
-<td>Italian (Italy)</td>
-</tr>
-<tr>
-<td>fr_FR</td>
-<td>French (France)</td>
-</tr>
-<tr>
-<td>ja_JP</td>
-<td>Japanese (Japan)</td>
-</tr>
-<tr>
-<td>ko_KR</td>
-<td>Korean (Korea)</td>
-</tr>
-<tr>
-<td>es_MX</td>
-<td>Spanish (Mexico)</td>
-</tr>
-<tr>
-<td>es_AR</td>
-<td>Spanish (Argentina)</td>
-</tr>
-<tr>
-<td>pt_BR</td>
-<td>Portuguese (Brazil)</td>
-</tr>
-<tr>
-<td>en_US</td>
-<td>English (United States)</td>
-</tr>
-<tr>
-<td>en_AU</td>
-<td>English (Australia)</td>
-</tr>
-<tr>
-<td>ru_RU</td>
-<td>Russian (Russia)</td>
-</tr>
-<tr>
-<td>tr_TR</td>
-<td>Turkish (Turkey)</td>
-</tr>
-<tr>
-<td>ms_MY</td>
-<td>Malay (Malaysia)</td>
-</tr>
-<tr>
-<td>en_PH</td>
-<td>English (Republic of the Philippines)</td>
-</tr>
-<tr>
-<td>en_SG</td>
-<td>English (Singapore)</td>
-</tr>
-<tr>
-<td>th_TH</td>
-<td>Thai (Thailand)</td>
-</tr>
-<tr>
-<td>vi_VN</td>
-<td>Vietnamese (Viet Nam)</td>
-</tr>
-<tr>
-<td>id_ID</td>
-<td>Indonesian (Indonesia)</td>
-</tr>
-<tr>
-<td>zh_MY</td>
-<td>Chinese (Malaysia)</td>
-</tr>
-<tr>
-<td>zh_CN</td>
-<td>Chinese (China)</td>
-</tr>
-<tr>
-<td>zh_TW</td>
-<td>Chinese (Taiwan)</td>
-</tr>
-</tbody>
-</table>
-<h2 id="data-dragon_champions">Champions</h2>
-<p>There are two kinds of data files for champions. The <code>champion.json</code> data file returns a list of champions with a brief summary. The individual champion JSON files contain additional data for each champion.</p>
-<p><a href="https://ddragon.leagueoflegends.com/cdn/15.11.1/data/en_US/champion.json">https://ddragon.leagueoflegends.com/cdn/15.11.1/data/en_US/<strong>champion.json</strong></a><br>
-<a href="https://ddragon.leagueoflegends.com/cdn/15.11.1/data/en_US/champion/Aatrox.json">https://ddragon.leagueoflegends.com/cdn/15.11.1/data/en_US/champion/<strong>Aatrox.json</strong></a></p>
-<h3 id="data-dragon_interpreting-spell-text">Interpreting Spell Text</h3>
-<p>Lore, tips, stats, spells, and even recommended items are all part of the data available for every champion. Champion spell tooltips often have placeholders for variables that are signified by double curly brackets. Here are some tips about interpreting these placeholders:</p>
-<p><strong> {{ eN }} placeholders</strong><br>
-Placeholders are replaced by the corresponding item in the array given in the <code>effectBurn</code> field. For example, <code>{{ eN }}</code> is a placeholder for <code>spell["effectBurn"]["1"]</code>.</p>
-<pre><code>/* Amumu's Bandage Toss */
-"tooltip": "Launches a bandage in a direction. If it hits an enemy unit, Amumu pulls himself to them, dealing {{ e1 }} &lt;scaleAP&gt;(+{{ a1 }})&lt;/scaleAP&gt; magic damage and stunning for {{ e2 }} second.",
-"effectBurn": [
-  null,
-  "80/130/180/230/280",
-  "1",
-  "1350",
-  ...
-]
-</code></pre>
-
-<p><strong> {{ aN }} or {{ fN }} placeholders</strong><br>
-These placeholders are slightly more complicated. Their values can be found in the vars field. First, find the object in the vars array whose key matches the variable. For example, for <code>{{ a1 }}</code>, find the object in the vars array whose key field has the value <code>a1</code>. The value for this variable is the coeff field in that same object.</p>
-<pre><code>/* Amumu's Bandage Toss */
-"tooltip": "Launches a bandage in a direction. If it hits an enemy unit, Amumu pulls himself to them, dealing {{ e1 }} &lt;scaleAP&gt;(+{{ a1 }})&lt;/scaleAP&gt; magic damage and stunning for {{ e2 }} second.",
-"vars": [
-  {
-    "key": "a1",
-    "link": "spelldamage",
-    "coeff": [
-      0.7
-    ]
+  function parseCSV(data) {
+    const lines = data.trim().split('\n');
+    const headers = lines[0].split(';').slice(1);
+    players = lines.slice(1).map(line => {
+      const cells = line.split(';').slice(1);
+      const obj = {};
+      headers.forEach((h, i) => {
+        obj[h.trim()] = cells[i]; // DŮLEŽITÉ: ořízne případné mezery
+      });
+      return obj;
+    }).filter(p => p['Tým']);
+    console.log(players); // ← sem přidej výpis do konzole
+    console.log("Lines:", lines);
+    console.log("Headers:", headers);
   }
-]
-</code></pre>
-
-<p>Under a champions spells there are two fields <code>effect</code> and <code>effectBurn</code>. <code>effect</code> contains an array of an ability's values per level where, in contrast, <code>effectBurn</code> contains a string of all the values at every level. (e.g., <code>"effect": [30,60,90,120,150]</code> vs <code>"effectBurn": "30/60/90/120/150"</code>). You might notice how the <code>effect</code> and <code>effectBurn</code> arrays have a <code>null</code> value in the 0 index. This is because those values are taken from designer-facing files where arrays are 1-based. JSON is 0-based so a null is inserted to make it easier to verify the JSON files are correct.</p>
-<pre><code>"effect": [
-  null,
-  [ 120, 150, 180, 210, 240 ],
-  [ 50, 70, 90, 110, 130 ],
-  [ 25, 35, 45, 55, 65 ],
-  [ 0.2, 0.2, 0.2, 0.2, 0.2 ],
-  [ 50, 60, 70, 80, 90 ]
-],
-"effectBurn": [
-  "",
-  "120/150/180/210/240",
-  "50/70/90/110/130",
-  "25/35/45/55/65",
-  "0.2",
-  "50/60/70/80/90"
-]
-</code></pre>
-
-<h3 id="data-dragon_calculating-spell-costs">Calculating Spell Costs</h3>
-<p>In most cases a spell costs mana or energy, you will find those related costs under the <code>cost</code> and <code>costBurn</code> fields. When a spell costs health, the cost will be found in the <code>effect</code> and <code>effectBurn</code> fields. You can determine how to calculate the cost of a spell by looking at the resource field, which should point you to the variable being used to display the cost of a spell.</p>
-<pre><code>/* Soraka's Astral Infusion */
-"resource": "10% Max Health, {{ cost }} Mana",
-"cost": [ 20, 25, 30, 35, 40 ],
-"costBurn": "20/25/30/35/40"
-</code></pre>
-
-<pre><code>/* Shen's Vorpal Blade */
-"resource": "{{ cost }} Energy",
-"cost": [ 60, 60, 60, 60, 60 ],
-"costBurn": "60"
-</code></pre>
-
-<pre><code>/* Dr. Mundo's Infected Cleaver */
-"resource": "{{ e3 }} Health",
-"cost": [ 0, 0, 0, 0, 0 ],
-"costBurn": "0",
-"effect": [
-  null,
-  [ 80, 130, 180, 230, 280 ],
-  [ 15, 18, 21, 23, 25 ],
-  [ 50, 60, 70, 80, 90 ],
-  [ 40, 40, 40, 40, 40 ],
-  [ 2, 2, 2, 2, 2 ]
-],
-"effectBurn": [
-  "",
-  "80/130/180/230/280",
-  "15/18/21/23/25",
-  "50/60/70/80/90",
-  "40",
-  "2"
-]
-</code></pre>
-
-<h3 id="data-dragon_champion-splash-assets">Champion Splash Assets</h3>
-<p><a href="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg">https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_<strong>0</strong>.jpg</a></p>
-<p>The number at the end of the filename corresponds to the skin number. You can find the skin number for each skin in the file for each individual champion in Data Dragon. Each champion contains a <code>skins</code> field and the skin number is indicated by the <code>num</code> field.</p>
-<pre><code>/* Aatrox (id: 266) */
-"skins": [
-  {
-    "id": 266000,
-    "name": "default",
-    "num": 0
-  },
-  {
-    "id": 266001,
-    "name": "Justicar Aatrox",
-    "num": 1
-  },
-  {
-    "id": 266002,
-    "name": "Mecha Aatrox",
-    "num": 2
-  }
-]
-</code></pre>
-
-<h3 id="data-dragon_champion-loading-screen-assets">Champion Loading Screen Assets</h3>
-<p><a href="https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Aatrox_0.jpg">https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Aatrox_<strong>0</strong>.jpg</a><br>
-The number at the end of the filename follows the same convention described in the <a href="https://developer.riotgames.com/docs/lol#data-dragon_champion-splash-art">Champion Splash Art</a>.</p>
-<h3 id="data-dragon_champion-square-assets">Champion Square Assets</h3>
-<p><a href="https://ddragon.leagueoflegends.com/cdn/15.11.1/img/champion/Aatrox.png">https://ddragon.leagueoflegends.com/cdn/15.11.1/img/champion/<strong>Aatrox</strong>.png</a></p>
-<h3 id="data-dragon_champion-passive-assets">Champion Passive Assets</h3>
-<p><a href="https://ddragon.leagueoflegends.com/cdn/15.11.1/img/passive/Anivia_P.png">https://ddragon.leagueoflegends.com/cdn/15.11.1/img/passive/<strong>Anivia_P</strong>.png</a>  </p>
-<p>You can find the filename for each champion's passive in the individual champion Data Dragon file. The JSON contains a <code>passive</code> field with image data. The filename is indicated by the <code>full</code> field.</p>
-<pre><code>/* Anivia (id: 34) */
-"passive": {
-  "name": "Rebirth",
-  "description": "Upon dying, Anivia will revert into an egg. If the egg can survive for six seconds, she is gloriously reborn.",
-  "image": {
-    "full": "Anivia_P.png",
-    "sprite": "passive0.png",
-    "group": "passive",
-    "x": 240,
-    "y": 0,
-    "w": 48,
-    "h": 48
-    }
-  }
-} 
-</code></pre>
-
-<h3 id="data-dragon_champion-ability-assets">Champion Ability Assets</h3>
-<p><a href="https://ddragon.leagueoflegends.com/cdn/15.11.1/img/spell/FlashFrost.png">https://ddragon.leagueoflegends.com/cdn/15.11.1/img/spell/<strong>FlashFrost.png</strong></a>  </p>
-<p>You can find the file name for each champion's abilities in the individual champion Data Dragon file. The <code>spells</code> field contains an array of objects which includes <code>image</code> data. The filename is indicated by the <code>full</code> field.</p>
-<pre><code>/* Anivia (id: 34) */
-"spells": [
-  {
-    "id": "FlashFrost",
-    "name": "Flash Frost",
-    "description": "Anivia brings her wings together and summons a sphere of ice that flies towards her opponents, chilling and damaging anyone in its path. When the sphere explodes it does moderate damage in a radius, stunning anyone in the area.",
-    "image": {
-      "full": "FlashFrost.png",
-      "sprite": "spell0.png",
-      "group": "spell",
-      "x": 192,
-      "y": 144,
-      "w": 48,
-      "h": 48
-    }
-  },
-  ...
-]
-</code></pre>
-
-<h2 id="data-dragon_items">Items</h2>
-<p>Data Dragon also provides the same level of detail for every item in the game. Within Data Dragon, you can find info such as the item's description, purchase value, sell value, items it builds from, items it builds into, and stats granted from the item.</p>
-<p><a href="https://ddragon.leagueoflegends.com/cdn/15.11.1/data/en_US/item.json">https://ddragon.leagueoflegends.com/cdn/15.11.1/data/en_US/<strong>item.json</strong></a></p>
-<p>The <code>effect</code> field holds an array of variables used extra scripts. For example, on Doran's shield you see the following data in the <code>effect</code> field, which corresponds to the 8 damage that is blocked from champion attacks.</p>
-<pre><code>"effect": {
-  "Effect1Amount": "8"
-}
-</code></pre>
-
-<h3 id="data-dragon_stat-naming-conventions">Stat Naming Conventions</h3>
-<p>A list of possible stats that you gain from items, runes, or masteries can also be found in <a href="https://ddragon.leagueoflegends.com/cdn/15.11.1/data/en_US/item.json">Data Dragon</a>. You can find a list of stats gained by the item, rune, or mastery by searching for the <code>stats</code> field. Below are some tips when it comes to understanding what a stat means and how they are calculated:</p>
-<ul>
-<li>Mod stands for modifier.</li>
-<li>An <strong>"r"</strong> at the beginning of the stat means those stats can be found on runes.</li>
-<li>Displaying flat vs. percentage vs. per 5 etc. is case-by-case. it will always be the same for a given stat. For example, <code>PercentAttackSpeedMod</code> will always be multiplied by 100 and displayed it as a percentage.</li>
-<li>Stats are called flat if you add them together, and percent if you multiply them together.</li>
-<li>Tenacity from an item does NOT stack but tenacity from a rune DOES stack.</li>
-</ul>
-<h3 id="data-dragon_item-assets">Item Assets</h3>
-<p><a href="https://ddragon.leagueoflegends.com/cdn/15.11.1/img/item/1001.png">https://ddragon.leagueoflegends.com/cdn/15.11.1/img/item/<strong>1001</strong>.png</a><br>
-The number appended to the item filename corresponds to the item id. You can find a list of the items ids in the item data file.</p>
-<h2 id="data-dragon_other">Other</h2>
-<h3 id="data-dragon_summoner-spells">Summoner Spells</h3>
-<p><a href="https://ddragon.leagueoflegends.com/cdn/15.11.1/data/en_US/summoner.json">https://ddragon.leagueoflegends.com/cdn/15.11.1/data/en_US/<strong>summoner.json</strong></a><br>
-<a href="https://ddragon.leagueoflegends.com/cdn/15.11.1/img/spell/SummonerFlash.png">https://ddragon.leagueoflegends.com/cdn/15.11.1/img/spell/<strong>SummonerFlash</strong>.png</a> </p>
-<h3 id="data-dragon_profile-icons">Profile Icons</h3>
-<p><a href="https://ddragon.leagueoflegends.com/cdn/15.11.1/data/en_US/profileicon.json">https://ddragon.leagueoflegends.com/cdn/15.11.1/data/en_US/<strong>profileicon.json</strong></a><br>
-<a href="https://ddragon.leagueoflegends.com/cdn/15.11.1/img/profileicon/588.png">https://ddragon.leagueoflegends.com/cdn/15.11.1/img/profileicon/<strong>685</strong>.png</a></p>
-<h3 id="data-dragon_minimaps">Minimaps</h3>
-<p><a href="https://ddragon.leagueoflegends.com/cdn/6.8.1/img/map/map11.png">https://ddragon.leagueoflegends.com/cdn/6.8.1/img/map/<strong>map11</strong>.png</a><br>
-The number appended to the map filename corresponds to the map id. You can find a list of the map ids in the <a href="https://developer.riotgames.com/docs/lol#general_map-names">Map Names</a> section of <a href="https://developer.riotgames.com/docs/lol#general_game-constants">Game Constants</a>.</p>
-<h3 id="data-dragon_sprites">Sprites</h3>
-<p><a href="https://ddragon.leagueoflegends.com/cdn/15.11.1/img/sprite/spell0.png">https://ddragon.leagueoflegends.com/cdn/15.11.1/img/sprite/<strong>spell0</strong>.png</a></p>
-<h3 id="data-dragon_scoreboard-icons-version-551">Scoreboard Icons (version 5.5.1)</h3>
-<p><a href="https://ddragon.leagueoflegends.com/cdn/5.5.1/img/ui/champion.png">https://ddragon.leagueoflegends.com/cdn/5.5.1/img/ui/<strong>champion.png</strong></a><br>
-<a href="https://ddragon.leagueoflegends.com/cdn/5.5.1/img/ui/items.png">https://ddragon.leagueoflegends.com/cdn/5.5.1/img/ui/<strong>items.png</strong></a><br>
-<a href="https://ddragon.leagueoflegends.com/cdn/5.5.1/img/ui/minion.png">https://ddragon.leagueoflegends.com/cdn/5.5.1/img/ui/<strong>minion.png</strong></a><br>
-<a href="https://ddragon.leagueoflegends.com/cdn/5.5.1/img/ui/score.png">https://ddragon.leagueoflegends.com/cdn/5.5.1/img/ui/<strong>score.png</strong></a><br>
-<a href="https://ddragon.leagueoflegends.com/cdn/5.5.1/img/ui/spells.png">https://ddragon.leagueoflegends.com/cdn/5.5.1/img/ui/<strong>spells.png</strong></a></p>
-<style>
-
-/* Removes Grey Cell Background */
-.content table>tbody>tr:nth-of-type(even)
-{
-  background-color: transparent;!important;
-}
-
-/* Sets Border Width, Type, and Color for Leftmost Table Column Border */
-.content table tr th:first-child, .content table tr td:first-child
-{
-  border-left: 1px solid #000;
-}
-
-/* Sets Background Color, Font Color, and Padding for Table Heading Row */
-.content table>thead tr th
-{
-  background: #000;
-  color: #ffffff!important;
-  padding: 6px 13px!important;
-}
-
-/* Sets Border Width, Type and Color for Very Top Table Border */
-.content table tr th
-
-{
-  border-top: 1px solid #000;
-}
-
-/* Sets Border Width, Type, and Color for Bottom and Right Sides of Cells */
-.content table tr th, .content table tr td
-
-{
-  border-right:1px solid #000;
-  border-bottom:1px solid #000;
-}
-
-/* Adds 10px of Empty Space Before the Top of the H3 Heading */
-h3
-{
-  margin-top: 10px;
-}
-
-/* Adds 10px of Empty Space Before the Top of the H4 Heading */
-h4
-{
-  margin-top: 10px;
-}
 
 
-/* Removes Grey and White Lines from Code Block */
-.content pre>code
+    function renderGrid(sortBy) {
+      const grid = document.getElementById("grid");
+      grid.innerHTML = "";
 
-{
-  background: #f7f7f9;
-}
-
-/* Changes Font Color of Inline Code Snippet to Black from Red */
-.content code
-{
-  color: #000;
-}
-
-</style>
-<h1 id="tournament-api">Tournament API</h1>
-<p>League of Legends leverages custom game lobbies to support developers that want to build Tournaments for players. Custom games can use Tournament Code that help you quickly and easily get players into private custom game lobbies with preset game settings, such as map and pick type. At the completion of each Tournament Code enabled game, the results will be forwarded automatically (HTTP POST) to a URL specified by the tournament developer. </p>
-<p><img alt="" src="./Riot Developer Portal_files/tournament-client.png"></p>
-<p>The Tournaments API allows you to:</p>
-<ol>
-<li>Register tournament providers and tournaments in a specific region/shard and its callback URL.</li>
-<li>Generate tournament codes for a given tournament.</li>
-<li>Receive game results in the form of an automatic callback (HTTP POST) from League of Legends servers whenever a game created using tournament code has been completed.</li>
-<li>Use match identifier (matchID) received in the callback to pull full stats data for the given match.</li>
-<li>Pull end of game data based on given tournament code in case the callback is never received.</li>
-<li>Query pre-game lobby player activity events for a given tournament code.</li>
-</ol>
-<h2 id="tournament-api_best-practices">Best Practices</h2>
-<p>To preserve the quality of the tournaments service, your Tournaments API Key may be revoked if you do not adhere to the following best practices:</p>
-<ul>
-<li>Respect the rate limit for your Tournament API Key and implement logic that considers the headers returned from a 429 Rate Limit Exceeded response.</li>
-<li>Implement logic to detect unsuccessful API calls and back off accordingly. Please notify us if you believe your application is working correctly and you are receiving errors, but do not continue to slam the tournaments service with repeatedly unsuccessful calls.</li>
-<li>Generate tournaments and tournament codes only as needed in production and development. Please don't create 1,000 tournament codes for a 10 game tournament. As a reminder, you can always create additional tournament codes as your tournament grows.</li>
-<li>Tournaments and tournament codes should be generated within a reasonable time in relation to the event. Do not pre-create tournaments and tournament codes at the start of the year and use them as the year progresses, but rather generate the tournament and codes as the event is announced and participants sign up.</li>
-</ul>
-<h2 id="tournament-api_tournament-api-notes">Tournament API Notes</h2>
-<p>When working with the Tournament API, keep the following in mind: </p>
-<ul>
-<li>Tournament providers are strongly associated with API keys, regenerating an API key will require a new provider.</li>
-<li>Though tournament codes can be re-used to generate additional lobbies. For best results with callbacks and Match-v5 lookups, create a single match with a tournament code.</li>
-<li>Lobby events should only be used to audit Tournament matches as needed. In rare cases lobby events may get dropped. Using lobby events to programmatically progress a tournament or to forfeit participants is not advised.</li>
-<li>Tournaments will expire if there are no active codes associated with the tournament. Tournament codes are eligible for expiration three months after they are generated. As tournaments and their codes can expire, creating them as close to the event as possible ensures no disruptions. For the best results:<ul>
-<li>Create a tournament no more than a week before the start of the first match.</li>
-<li>Upon creation of the tournament, generate a code to ensure the tournament has an active tournament code associated with it (thereby making ineligible for cleanup).</li>
-<li>Tournament codes should be generated as needed, not all at once at the start of the event.</li>
-</ul>
-</li>
-</ul>
-<h2 id="tournament-api_use-case-example">Use Case Example</h2>
-<p>Presume there is a tournament website created for League of Legends players that does the following:</p>
-<ul>
-<li>Announces tournament and rules</li>
-<li>Registers players/teams</li>
-<li>Generates/renders tournament brackets</li>
-<li>Seeds registered teams across the brackets</li>
-<li>Sends invites for matched teams to play their games</li>
-<li>Collects end of game results from team captains</li>
-<li>Provides new matches for teams that advance</li>
-<li>Officiates for situations when something goes wrong (no show, etc)</li>
-</ul>
-<p>The Tournaments API is designed to help automate the last four mentioned functions of tournament websites.</p>
-<p>It is recommended to register a tournament provider (specifying region/shard and URL for results) well in advance and do a full loop testing to ensure everything is setup properly for your web service.</p>
-<h3 id="tournament-api_tournaments-api-structure">Tournaments API Structure</h3>
-<p>The Tournaments API introduces a simple parent-child data structure to ensure data model consistency:</p>
-<p><img alt="" src="./Riot Developer Portal_files/tournament-model.png"></p>
-<h2 id="tournament-api_tournaments-api-methods">Tournaments API Methods</h2>
-<p>Access to the Tournaments API provides several new methods that can be viewed on the <a href="https://developer.riotgames.com/apis">API Reference page</a>. You should explore every method to get more information on actual usage including the format and description of parameters you can supply.</p>
-<p>See the diagram below for a full overview of all methods and their functionality:</p>
-<p><img alt="" src="./Riot Developer Portal_files/tournament-methods.png"></p>
-<h2 id="tournament-api_generating-tournament-codes">Generating Tournament Codes</h2>
-<p>To generate tournament codes:</p>
-<ol>
-<li>Use <code>/lol/tournament/v5/providers</code> API endpoint to register as a provider in specific region while also setting a URL to be used for receiving game results notifications (HTTP POST). Returns providerID.</li>
-<li>Use <code>providerID</code> to register a tournament for given Tournament Provider. Receive <code>tournamentID</code> in return.</li>
-<li>Use <code>tournamentID</code> to generate one or more tournament codes for a given tournament using specific game settings, such as map, spectator rules, or pick type.<ul>
-<li>A tournament code should only be used to create a single match. If you reuse a tournament code, the server callback will not return stats for each match.</li>
-<li>The method to generate tournament codes will return up to 1,000 tournament codes at a time. If needed, additional calls to this method can be made to create additional tournament codes.</li>
-<li>Stale or unused tournament codes may be purged after a period of inactivity.</li>
-</ul>
-</li>
-</ol>
-<p>Tournament organizers can generate all the tournament codes they need in advance or generate them as necessary per each phase as shown below:</p>
-<h2 id="tournament-api_server-callback">Server Callback</h2>
-<p>When a game created using tournament code has completed, the League of Legends servers will automatically make a callback to the tournament provider's registered URL through HTTP POST. Below are a couple notes about how the server callback works.</p>
-<p>The provider registration and callback mechanism are relatively inflexible. For best results, use one of the valid generic top level domains (gTLDs) listed below and use HTTP over HTTPS for your callback URL while using the metaData field to validate callbacks.</p>
-<p><strong><em>Port Restrictions</em></strong><br>
-The server callback supports http (port 80) and https (port 443) however Certificate Authorities (CA) approved after Jan 29, 2012 aren't supported. The callback server won't perform a callback if it is unable to validate an SSL cert issued by an unknown CA (and therefore doesn't trust).</p>
-<p><strong><em>Domain Restrictions</em></strong><br>
-Only valid gTLDs approved by ICANN before March 2011 are considered valid. This excludes newer gTLDs such as (.mail, .xxx, .xyz, etc.)</p>
-<p><strong><em>Valid gTLDs (approved before March 2011)</em></strong><br>
-aero, asia, biz, cat, com, coop, info, jobs, mobi, museum, name, net, org, pro, tel, travel, gov, edu, mil, int</p>
-<p><strong><em>Valid Country Code TLDs</em></strong><br>
-ac, ad, ae, af, ag, ai, al, am, an, ao, aq, ar, as, at, au, aw, ax, az, ba, bb, bd, be, bf, bg, bh, bi, bj, bm, bn, bo, br, bs, bt, bv, bw, by, bz, ca, cc, cd, cf, cg, ch, ci, ck, cl, cm, cn, co, cr, cu, cv, cx, cy, cz, de, dj, dk, dm, do, dz, ec, ee, eg, er, es, et, eu, fi, fj, fk, fm, fo, fr, ga, gb, gd, ge, gf, gg, gh, gi, gl, gm, gn, gp, gq, gr, gs, gt, gu, gw, gy, hk, hm, hn, hr, ht, hu, id, ie, il, im, in, io, iq, ir, is, it, je, jm, jo, jp, ke, kg, kh, ki, km, kn, kp, kr, kw, ky, kz, la, lb, lc, li, lk, lr, ls, lt, lu, lv, ly, ma, mc, md, me, mg, mh, mk, ml, mm, mn, mo, mp, mq, mr, ms, mt, mu, mv, mw, mx, my, mz, na, nc, ne, nf, ng, ni, nl, no, np, nr, nu, nz, om, pa, pe, pf, pg, ph, pk, pl, pm, pn, pr, ps, pt, pw, py, qa, re, ro, rs, ru, rw, sa, sb, sc, sd, se, sg, sh, si, sj, sk, sl, sm, sn, so, sr, st, su, sv, sy, sz, tc, td, tf, tg, th, tj, tk, tl, tm, tn, to, tp, tr, tt, tv, tw, tz, ua, ug, uk, um, us, uy, uz, va, vc, ve, vg, vi, vn, vu, wf, ws, ye, yt, yu, za, zm, zw</p>
-<ul>
-<li>The callback from the League of Legends server relies on a successful response from the provider's registered URL. If a 200 response is not detected, there is a retry mechanism that will make additional attempts. In the rare occasion that a callback is not received within 5 minutes, you can assume the callback failed.</li>
-<li>If you need to change your provider callback URL, register a new provider but remember tournaments generated with the old provider will continue to make callbacks to the old provider callback URL.</li>
-</ul>
-<p>When a game created using Tournament Code has completed, the League of Legends servers will automatically make a callback to the tournament provider's registered URL via HTTP POST. Below are a couple notes about how the server callback works.</p>
-<p>If you are having trouble debugging your logic, use the following cURL to mimic the behavior of the callback:</p>
-<pre><code>curl &lt;callback_url&gt; -X POST -H "Content-Type: application/json" -d '&lt;response_body&gt;'
-</code></pre>
-
-<p>Below is a sample JSON response returned by the League of Legends servers when a callback is made:</p>
-<pre><code>{
-  "startTime": 1234567890000,
-  "shortCode": "NA1234a-1a23b456-a1b2-1abc-ab12-1234567890ab",
-  "metaData": "{\"title\":\"Game 42 - Finals\"}",
-  "gameId": 1234567890,
-  "gameName": "a123bc45-ab1c-1a23-ab12-12345a67b89c",
-  "gameType": "Practice",
-  "gameMap": 11,
-  "gameMode": "CLASSIC",
-  "region": "NA1"
-}
-</code></pre>
-
-<h2 id="tournament-api_lobby-events">Lobby Events</h2>
-<p>In addition to game stats related methods, the <a href="https://developer.riotgames.com/api-methods/#tournament-provider-v4/GET_getLobbyEventsByCode">lobby-events/by-code/{tournamentCode}</a> method that can help query pre-game lobby events. This is useful for building tournament administration system and be able to detect whether a game for a given tournament code started normally. This call can be made both after the match for the full timeline and anytime during the lobby phase for a timeline of events up to that moment. Below is an example of the JSON returned for lobby events:</p>
-<pre><code>{
-&nbsp;&nbsp;"eventList": [
-&nbsp;&nbsp;  {
-      "timestamp": "1234567890000",
-      "eventType": "PracticeGameCreatedEvent", //Lobby Created
-      "summonerId": "12345678"
-&nbsp;&nbsp;&nbsp;&nbsp;},
-&nbsp;&nbsp;&nbsp;&nbsp;{
-      "timestamp": "1234567890000",
-      "eventType": "PlayerJoinedGameEvent", //Player Joins Lobby
-      "summonerId": "12345678"
-&nbsp;&nbsp;&nbsp;&nbsp;},
-&nbsp;&nbsp;&nbsp;&nbsp;{
-      "timestamp": "1234567890000",
-      "eventType": "PlayerSwitchedTeamEvent", //Player Switches Teams
-      "summonerId": "12345678"
-&nbsp;&nbsp;&nbsp;&nbsp;},
-&nbsp;&nbsp;&nbsp;&nbsp;{
-      "timestamp": "1234567890000",
-      "eventType": "PlayerQuitGameEvent", //Player Leaves Lobby
-      "summonerId": "12345678"
-&nbsp;&nbsp;&nbsp;&nbsp;},
-&nbsp;&nbsp;&nbsp;&nbsp;{
-      "timestamp": "1234567890000",
-      "eventType": "ChampSelectStartedEvent"  //Champ Select Begins
-&nbsp;&nbsp;&nbsp;&nbsp;},
-&nbsp;&nbsp;&nbsp;&nbsp;{
-      "timestamp": "1234567890000",
-      "eventType": "GameAllocationStartedEvent"  //Loading Screen Begins
-&nbsp;&nbsp;&nbsp;&nbsp;},
-&nbsp;&nbsp;&nbsp;&nbsp;{
-      "timestamp": "1234567890000",
-      "eventType": "GameAllocatedToLsmEvent"  //Game Begins
-&nbsp;&nbsp;&nbsp;&nbsp;}
-&nbsp;&nbsp;]
-}
-</code></pre>
-
-<style>
-
-/* Removes Grey Cell Background */
-.content table>tbody>tr:nth-of-type(even)
-{
-      background-color: transparent;!important;
-}
-
-/* Sets Border Width, Type, and Color for Leftmost Table Column Border */
-.content table tr th:first-child, .content table tr td:first-child
-{
-      border-left: 1px solid #000;
-}
-
-/* Sets Background Color, Font Color, and Padding for Table Heading Row */
-.content table>thead tr th
-{
-      background: #000;
-      color: #ffffff!important;
-      padding: 6px 13px!important;
-}
-
-/* Sets Border Width, Type and Color for Very Top Table Border */
-.content table tr th
-
-{
-      border-top: 1px solid #000;
-}
-
-/* Sets Border Width, Type, and Color for Bottom and Right Sides of Cells */
-.content table tr th, .content table tr td
-
-{
-      border-right:1px solid #000;
-      border-bottom:1px solid #000;
-}
-
-/* Adds 10px of Empty Space Before the Top of the H3 Heading */
-h3
-{
-      margin-top: 10px;
-}
-
-/* Adds 10px of Empty Space Before the Top of the H4 Heading */
-h4
-{
-      margin-top: 10px;
-}
-
-
-/* Removes Grey and White Lines from Code Block */
-.content pre>code
-
-{
-      background: #f7f7f9;
-}
-
-/* Changes Font Color of Inline Code Snippet to Black from Red */
-.content code
-{
-      color: #000;
-}
-
-</style>
-<h1 id="league-client-api">League Client API</h1>
-<h3 id="league-client-api_what-is-the-league-client-api">What is the League Client API?</h3>
-<p>In an <a href="https://engineering.riotgames.com/news/architecture-league-client-update">article</a> on the Riot Games Engineering Blog, there's an image that is useful for defining what we're classifying as "League Client APIs".</p>
-<p>Specifically, we're referring to a set of protocols that the Chromium Embedded Framework (CEF) uses to communicate with a C++ Library that in turn communicates with the League of Legends platform. As you'll notice, the communications between the C++ library and the CEF all occur locally on your desktop. This is the League Client API. This service is not officially supported for use with third party applications.</p>
-<p><strong>NOTE:</strong> We provide no guarantees of full documentation, service uptime, or change communication for unsupported services. This team does not own any components of the underlying services, and will not offer additional support related to them.</p>
-<p><img alt="" src="./Riot Developer Portal_files/lcu_architecture.png"></p>
-<h3 id="league-client-api_whats-next">What's next</h3>
-<p>Whether you're combining the Riot Games API and League Client API, or doing something by only using the League Client endpoints, we need to know about it. Either<a href="https://developer.riotgames.com/app-type">  create a new application</a> or leave a note on your existing application in the Developer Portal. We need to know which endpoints you're using and how you're using them in order to expand on current or future feature sets. If you have any questions please join the <a href="https://discord.gg/riotgamesdevrel" target="_blank">Developer Discord</a> for help.</p>
-<style>
-
-/* Removes Grey Cell Background */
-.content table>tbody>tr:nth-of-type(even)
-{
-    background-color: transparent;!important;
-}
-
-/* Sets Border Width, Type, and Color for Leftmost Table Column Border */
-.content table tr th:first-child, .content table tr td:first-child
-{
-    border-left: 1px solid #000;
-}
-
-/* Sets Background Color, Font Color, and Padding for Table Heading Row */
-.content table>thead tr th
-{
-    background: #000;
-    color: #ffffff!important;
-    padding: 6px 13px!important;
-}
-
-/* Sets Border Width, Type and Color for Very Top Table Border */
-.content table tr th
-
-{
-    border-top: 1px solid #000;
-}
-
-/* Sets Border Width, Type, and Color for Bottom and Right Sides of Cells */
-.content table tr th, .content table tr td
-
-{
-    border-right:1px solid #000;
-    border-bottom:1px solid #000;
-}
-
-/* Adds 10px of Empty Space Before the Top of the H3 Heading */
-h3
-{
-    margin-top: 10px;
-}
-
-/* Adds 10px of Empty Space Before the Top of the H4 Heading */
-h4
-{
-    margin-top: 10px;
-}
-
-
-/* Removes Grey and White Lines from Code Block */
-.content pre>code
-
-{
-    background: #f7f7f9;
-}
-
-/* Changes Font Color of Inline Code Snippet to Black from Red */
-.content code
-{
-    color: #000;
-}
-
-</style>
-<h1 id="game-client-api">Game Client API</h1>
-<p>The Game Client APIs are served over HTTPS by League of Legends game client and are only available locally for native applications.</p>
-<h2 id="game-client-api_root-certificatessl-errors">Root Certificate/SSL Errors</h2>
-<p>The League of Legends client and the game client use a self-signed certificate for HTTPS requests. To use the Game Client API, you can ignore these errors or use the <a href="https://static.developer.riotgames.com/docs/lol/riotgames.pem">root certificate</a> to validate the game client's SSL certificate. If you are testing locally, you can use the following insecure CURL that will ignore the SSL certificate errors.</p>
-<pre><code>curl --insecure https://127.0.0.1:2999/swagger/v3/openapi.json
-</code></pre>
-
-<h2 id="game-client-api_swagger">Swagger</h2>
-<p>You can request the Swagger v2 and OpenAPI v3 specs for the Game Client API with the following URLs:<br>
-<code>https://127.0.0.1:2999/swagger/v2/swagger.json</code><br>
-<code>https://127.0.0.1:2999/swagger/v3/openapi.json</code></p>
-<h2 id="game-client-api_live-client-data-api">Live Client Data API</h2>
-<p>The Live Client Data API provides a method for gathering data during an active game. It includes general information about the game as well player data.</p>
-<h3 id="game-client-api_get-all-game-data">Get All Game Data</h3>
-<p>The Live Client Data API has a number of endpoints that return a subset of the data returned by the <code>/allgamedata</code> endpoint. This endpoint is great for testing the Live Client Data API, but unless you actually need all the data from this endpoint, use one of the endpoints listed below that return a subset of the response. </p>
-<p><code>GET https://127.0.0.1:2999/liveclientdata/allgamedata</code><br>
-Get all available data.</p>
-<p>You can find a sample response <a href="https://static.developer.riotgames.com/docs/lol/liveclientdata_sample.json">here</a>.</p>
-<h3 id="game-client-api_endpoints">Endpoints</h3>
-<p><strong>Active Player</strong><br>
-<code>GET ​https://127.0.0.1:2999/liveclientdata/activeplayer</code><br>
-Get all data about the active player.</p>
-<pre><code>{
-    "abilities": {...},
-    "championStats": {
-      "abilityHaste": 0.00000000000000,
-      "abilityPower": 0.00000000000000,
-      "armor": 0.00000000000000,
-      "armorPenetrationFlat": 0.0,
-      "armorPenetrationPercent": 0.0,
-      "attackDamage": 0.00000000000000,
-      "attackRange": 0.0,
-      "attackSpeed": 0.00000000000000,
-      "bonusArmorPenetrationPercent": 0.0,
-      "bonusMagicPenetrationPercent": 0.0,
-      "cooldownReduction": 0.00,
-      "critChance": 0.0,
-      "critDamage": 0.0,
-      "currentHealth": 0.0,
-      "healthRegenRate": 0.00000000000000,
-      "lifeSteal": 0.0,
-      "magicLethality": 0.0,
-      "magicPenetrationFlat": 0.0,
-      "magicPenetrationPercent": 0.0,
-      "magicResist": 0.00000000000000,
-      "maxHealth": 0.00000000000000,
-      "moveSpeed": 0.00000000000000,
-      "physicalLethality": 0.0,
-      "resourceMax": 0.00000000000000,
-      "resourceRegenRate": 0.00000000000000,
-      "resourceType": "MANA",
-      "resourceValue": 0.00000000000000,
-      "spellVamp": 0.0,
-      "tenacity": 0.0
-    }
-    "currentGold": 0.0,
-    "fullRunes": {...},
-    "level": 1,
-    "summonerName": "Riot Tuxedo",
-    "riotId": "Riot Tuxedo#TXC1",
-    "riotIdGameName": "Riot Tuxedo",
-    "riotIdTagLine": "TXC1"
-}
-</code></pre>
-
-<p><code>GET ​https://127.0.0.1:2999/liveclientdata/activeplayername</code><br>
-Returns the player name.</p>
-<pre><code>"Riot Tuxedo#TXC1"
-</code></pre>
-
-<p><code>GET ​https://127.0.0.1:2999/liveclientdata/activeplayerabilities</code><br>
-Get Abilities for the active player.</p>
-<pre><code>{
-    "E": {
-        "abilityLevel": 0,
-        "displayName": "Molten Shield",
-        "id": "AnnieE",
-        "rawDescription": "GeneratedTip_Spell_AnnieE_Description",
-        "rawDisplayName": "GeneratedTip_Spell_AnnieE_DisplayName"
-    },
-    "Passive": {
-        "displayName": "Pyromania",
-        "id": "AnniePassive",
-        "rawDescription": "GeneratedTip_Passive_AnniePassive_Description",
-        "rawDisplayName": "GeneratedTip_Passive_AnniePassive_DisplayName"
-    },
-    "Q": {
-        "abilityLevel": 0,
-        "displayName": "Disintegrate",
-        "id": "AnnieQ",
-        "rawDescription": "GeneratedTip_Spell_AnnieQ_Description",
-        "rawDisplayName": "GeneratedTip_Spell_AnnieQ_DisplayName"
-    },
-    "R": {
-        "abilityLevel": 0,
-        "displayName": "Summon: Tibbers",
-        "id": "AnnieR",
-        "rawDescription": "GeneratedTip_Spell_AnnieR_Description",
-        "rawDisplayName": "GeneratedTip_Spell_AnnieR_DisplayName"
-    },
-    "W": {
-        "abilityLevel": 0,
-        "displayName": "Incinerate",
-        "id": "AnnieW",
-        "rawDescription": "GeneratedTip_Spell_AnnieW_Description",
-        "rawDisplayName": "GeneratedTip_Spell_AnnieW_DisplayName"
-    }
-}
-</code></pre>
-
-<p><code>GET ​https://127.0.0.1:2999/liveclientdata/activeplayerrunes</code><br>
-Retrieve the full list of runes for the active player.</p>
-<pre><code>{
-    "keystone": {
-        "displayName": "Electrocute",
-        "id": 8112,
-        "rawDescription": "perk_tooltip_Electrocute",
-        "rawDisplayName": "perk_displayname_Electrocute"
-    },
-    "primaryRuneTree": {
-        "displayName": "Domination",
-        "id": 8100,
-        "rawDescription": "perkstyle_tooltip_7200",
-        "rawDisplayName": "perkstyle_displayname_7200"
-    },
-    "secondaryRuneTree": {
-        "displayName": "Sorcery",
-        "id": 8200,
-        "rawDescription": "perkstyle_tooltip_7202",
-        "rawDisplayName": "perkstyle_displayname_7202"
-    },
-    "generalRunes": [
-        {
-            "displayName": "Electrocute",
-            "id": 8112,
-            "rawDescription": "perk_tooltip_Electrocute",
-            "rawDisplayName": "perk_displayname_Electrocute"
-        },
-        ...
-    ],
-    "statRunes": [
-        {
-            "id": 5007,
-            "rawDescription": "perk_tooltip_StatModCooldownReductionScaling"
-        },
-        {
-            "id": 5008,
-            "rawDescription": "perk_tooltip_StatModAdaptive"
-        },
-        {
-            "id": 5003,
-            "rawDescription": "perk_tooltip_StatModMagicResist"
+      const roleOrder = { TOP: 1, JNG: 2, MID: 3, ADC: 4, SUP: 5, SUB: 6 };
+      
+      players.sort((a, b) => {
+        if (sortBy === "Tým") {
+          return (a["Tým"] || "").localeCompare(b["Tým"] || "");
+        } else if (sortBy === "Role") {
+          return (roleOrder[a["Role"]] || 99) - (roleOrder[b["Role"]] || 99);
+        } else {
+          const num = val => parseFloat((val || '0').replace(',', '.')) || 0;
+          return num(b[sortBy]) - num(a[sortBy]);
         }
-    ]
-}
-</code></pre>
+      });
 
-<p><strong>All Players</strong><br>
-<code>GET ​https://127.0.0.1:2999/liveclientdata/playerlist</code><br>
-Retrieve the list of heroes in the game and their stats.</p>
-<pre><code>[
-    {
-        "championName": "Annie",
-        "isBot": false,
-        "isDead": false,
-        "items": [...],
-        "level": 1,
-        "position": "MIDDLE",
-        "rawChampionName": "game_character_displayname_Annie",
-        "respawnTimer": 0.0,
-        "runes": {...},
-        "scores": {...},
-        "skinID": 0,
-        "summonerName": "Riot Tuxedo",
-        "riotId": "Riot Tuxedo#TXC1",
-        "riotIdGameName": "Riot Tuxedo",
-        "riotIdTagLine": "TXC1",
-        "summonerSpells": {...},
-        "team": "ORDER"
-    },
-    ...
-]
-</code></pre>
-
-<p><code>GET ​https://127.0.0.1:2999/liveclientdata/playerscores?riotId=</code><br>
-Retrieve the list of the current scores for the player.</p>
-<pre><code>{
-    "assists": 0,
-    "creepScore": 0,
-    "deaths": 0,
-    "kills": 0,
-    "wardScore": 0.0
-}
-</code></pre>
-
-<p><code>GET ​https://127.0.0.1:2999/liveclientdata/playersummonerspells?riotId=</code><br>
-Retrieve the list of the summoner spells for the player.</p>
-<pre><code>{
-    "summonerSpellOne": {
-        "displayName": "Flash",
-        "rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
-        "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
-    },
-    "summonerSpellTwo": {
-        "displayName": "Ignite",
-        "rawDescription": "GeneratedTip_SummonerSpell_SummonerDot_Description",
-        "rawDisplayName": "GeneratedTip_SummonerSpell_SummonerDot_DisplayName"
+      for (const p of players) {
+        const logoPath = `images/${p["Tým"]}.png`;
+        const card = document.createElement("div");
+        card.className = "player-card";
+		card.innerHTML = `
+		  <img src="${logoPath}" alt="${p["Tým"]}" class="team-logo" onerror="this.src='https://via.placeholder.com/48?text=No+Logo'">
+		  <div class="player-info">Role: ${p["Role"]}</div>
+		  <div class="player-name">${p["Player"]}</div>
+		  <div class="player-info highlight">KDA: ${p["KDA"]}</div>
+		  <div class="player-info">MVP: ${p["MVP"]}</div>
+		  <div class="player-info">Kills: ${p["Kills"]}</div>
+		`;
+        grid.appendChild(card);
+      }
     }
-}
-</code></pre>
-
-<p><code>GET ​https://127.0.0.1:2999/liveclientdata/playermainrunes?riotId=</code><br>
-Retrieve the basic runes of any player.</p>
-<pre><code>{
-    "keystone": {
-        "displayName": "Electrocute",
-        "id": 8112,
-        "rawDescription": "perk_tooltip_Electrocute",
-        "rawDisplayName": "perk_displayname_Electrocute"
-    },
-    "primaryRuneTree": {
-        "displayName": "Domination",
-        "id": 8100,
-        "rawDescription": "perkstyle_tooltip_7200",
-        "rawDisplayName": "perkstyle_displayname_7200"
-    },
-    "secondaryRuneTree": {
-        "displayName": "Sorcery",
-        "id": 8200,
-        "rawDescription": "perkstyle_tooltip_7202",
-        "rawDisplayName": "perkstyle_displayname_7202"
-    }
-}
-</code></pre>
-
-<p><code>GET ​https://127.0.0.1:2999/liveclientdata/playeritems?riotId=</code><br>
-Retrieve the list of items for the player.</p>
-<pre><code>[
-    {
-        "canUse": true,
-        "consumable": false,
-        "count": 1,
-        "displayName": "Warding Totem (Trinket)",
-        "itemID": 3340,
-        "price": 0,
-        "rawDescription": "game_item_description_3340",
-        "rawDisplayName": "game_item_displayname_3340",
-        "slot": 6
-    },
-    ...
-]
-</code></pre>
-
-<p><strong>Events</strong><br>
-<code>GET ​https://127.0.0.1:2999/liveclientdata/eventdata</code><br>
-Get a list of events that have occurred in the game.</p>
-<pre><code>{
-    "Events": [
-        {
-            "EventID": 0,
-            "EventName": "GameStart",
-            "EventTime": 0.0325561985373497
-        },
-        ...
-    ]
-}
-</code></pre>
-
-<p>You can find a list of sample events <a href="https://static.developer.riotgames.com/docs/lol/liveclientdata_events.json">here</a>.</p>
-<p><strong>Game</strong><br>
-<code>GET ​https://127.0.0.1:2999/liveclientdata/gamestats</code><br>
-Basic data about the game.</p>
-<pre><code>{
-  "gameMode": "CLASSIC",
-  "gameTime": 0.000000000,
-  "mapName": "Map11",
-  "mapNumber": 11,
-  "mapTerrain": "Default"
-}
-</code></pre>
-
-<p>Any of these endpoints that returned a <code>summonerName</code>, now return a RiotID shim over <code>summonerName</code>, and new fields called <code>riotId</code>, <code>riotIdGameName</code> and <code>riotIdTagLine</code> in structured responses.&nbsp;Any endpoints that took a SummonerName as a parameter now accepts only the <code>riotId</code> parameter. It attempts to match the name to RiotID first, then RiotIDGameName, then SummonerName (to maintain backwards compatibility until we can fully deprecate SummonerName).</p>
-<h2 id="game-client-api_replay-api">Replay API</h2>
-<p>The Replay API allows developers to adjust the in-game camera during replays. <a href="https://github.com/RiotGames/leaguedirector">League Director</a> is an open source example of how a tool can leverage the Replay API.</p>
-<h3 id="game-client-api_getting-started">Getting Started</h3>
-<p>By default the Replay API is disabled. To start using the Replay API, enable the Replay API in the game client config by locating where your game is installed and adding the following lines to the <em>game.cfg</em> file:</p>
-<p>Example file location:<br>
-<em>C:\Riot Games\League of Legends\Config\game.cfg</em></p>
-<pre><code>[General]
-EnableReplayApi=1
-</code></pre>
-
-<p>Once you have enabled the Replay API, the game client will generate the Swagger v2 and OpenAPI v3 specs for the Replay API, which indicates the Replay API is usable.</p>
-<h3 id="game-client-api_endpoints_1">Endpoints</h3>
-<p><code>GET https://127.0.0.1:2999/replay/game</code><br>
-Information about the game client process.</p>
-<p><code>GET https://127.0.0.1:2999/replay/playback</code><br>
-Returns the current replay playback state such as pause and current time.</p>
-<p><code>POST https://127.0.0.1:2999/replay/playback</code><br>
-Allows modifying the playback state such as play/pause and the game time to seek to. All values are optional.</p>
-<p><code>GET https://127.0.0.1:2999/replay/render</code><br>
-Returns the current render properties.</p>
-<p><code>POST https://127.0.0.1:2999/replay/render</code><br>
-Allows modifying the current render properties. All values are optional.</p>
-<p><code>GET https://127.0.0.1:2999/replay/recording</code><br>
-Returns the current status of video recording. Poll this resource for progress on the output.</p>
-<p><code>POST https://127.0.0.1:2999/replay/recording</code><br>
-Post to begin a recording specifying the codec and output filepath. Subsequent GET requests to this resource will update the status.</p>
-<p><code>GET https://127.0.0.1:2999/replay/sequence</code><br>
-Returns the sequence currently being applied.</p>
-<p><code>POST https://127.0.0.1:2999/replay/sequence</code><br>
-Post to apply a sequence of keyframes that the replay should play. Post an empty object to remove the sequence.</p>
-<style>
-
-/* Removes Grey Cell Background */
-.content table>tbody>tr:nth-of-type(even)
-{
-    background-color: transparent;!important;
-}
-
-/* Sets Border Width, Type, and Color for Leftmost Table Column Border */
-.content table tr th:first-child, .content table tr td:first-child
-{
-    border-left: 1px solid #000;
-}
-
-/* Sets Background Color, Font Color, and Padding for Table Heading Row */
-.content table>thead tr th
-{
-    background: #000;
-    color: #ffffff!important;
-    padding: 6px 13px!important;
-}
-
-/* Sets Border Width, Type and Color for Very Top Table Border */
-.content table tr th
-
-{
-    border-top: 1px solid #000;
-}
-
-/* Sets Border Width, Type, and Color for Bottom and Right Sides of Cells */
-.content table tr th, .content table tr td
-
-{
-    border-right:1px solid #000;
-    border-bottom:1px solid #000;
-}
-
-/* Adds 10px of Empty Space Before the Top of the H3 Heading */
-h3
-{
-    margin-top: 10px;
-}
-
-/* Adds 10px of Empty Space Before the Top of the H4 Heading */
-h4
-{
-    margin-top: 10px;
-}
-
-
-/* Removes Grey and White Lines from Code Block */
-.content pre>code
-
-{
-    background: #f7f7f9;
-}
-
-/* Changes Font Color of Inline Code Snippet to Black from Red */
-.content code
-{
-    color: #000;
-}
-
-</style>
-<h1 id="working-with-lol-apis">Working with LoL APIs</h1>
-<h2 id="working-with-lol-apis_game-constants">Game Constants</h2>
-<p>When looking up specific seasons, queues, maps, and modes it is important to use the correct IDs. </p>
-<h3 id="working-with-lol-apis_seasons">Seasons</h3>
-<p>Season IDs are used in match history to indicate which season a match was played. A full list of season ids can be found in <a href="https://static.developer.riotgames.com/docs/lol/seasons.json"><em>seasons.json</em></a>.</p>
-<pre><code>[
-  {
-    "id": 0,
-    "season": "PRESEASON 3"
-  },
-  ...
-]
-</code></pre>
-
-<h3 id="working-with-lol-apis_queue-ids">Queue IDs</h3>
-<p>Queue IDs show up in several places throughout the API and are used to indicate which kind of match was played. A full list of queue ids can be found in <a href="https://static.developer.riotgames.com/docs/lol/queues.json"><em>queues.json</em></a>.</p>
-<p><em>Note</em>: In early 2022, URF (previously <code>queueId</code> 900) was divided into separate queues— ARURF (<code>queueId</code> 900) and Pick URF (<code>queueId</code> 1900). All Pick URF games from before this distinction will still be in <code>queueId</code> 900.</p>
-<pre><code>[
-  {
-    "queueId": 0,
-    "map": "Custom games",
-    "description": null,
-    "notes": null
-  },
-  ...
-]
-</code></pre>
-
-<h3 id="working-with-lol-apis_maps">Maps</h3>
-<p>Map IDs are used in match history to indicate which map a match was played. A full list of map IDs can be found in <a href="https://static.developer.riotgames.com/docs/lol/maps.json"><em>maps.json</em></a>.</p>
-<pre><code>[
-  {
-    "mapId": 1,
-    "mapName": "Summoner's Rift",
-    "notes": "Original Summer variant"
-  },
-  ...
-]
-</code></pre>
-
-<h3 id="working-with-lol-apis_game-modes">Game Modes</h3>
-<p>A full list of game modes can be found in <a href="https://static.developer.riotgames.com/docs/lol/gameModes.json"><em>gameModes.json</em></a>.</p>
-<pre><code>[
-  {
-    "gameMode": "CLASSIC",
-    "description": "Classic Summoner's Rift and Twisted Treeline games"
-  },
-  ...
-]
-</code></pre>
-
-<h3 id="working-with-lol-apis_game-types">Game Types</h3>
-<p>A full list of game types can be found in <a href="https://static.developer.riotgames.com/docs/lol/gameTypes.json"><em>gameTypes.json</em></a>.</p>
-<pre><code>[
-  {
-    "gameType": "CUSTOM_GAME",
-    "description": "Custom games"
-  },
-  ...
-]
-</code></pre>
-
-<h2 id="working-with-lol-apis_ranked-info">Ranked Info</h2>
-<h3 id="working-with-lol-apis_queue-types">Queue Types</h3>
-<p>The League endpoints return a field called <code>queueType</code> that indicates what map/mode a player played. Depending on the <code>queueType</code>, the <code>highestTierAchieved</code> field returns the highest ending tier for the previous season from a group of ranked queues.</p>
-<p>Here is a list of all of the <code>queueType</code> and <code>highestTierAchieved</code> for each.</p>
-<h4 id="working-with-lol-apis_summoners-rift">Summoner's Rift</h4>
-<pre><code>Unranked
-    RANKED_SOLO_5x5
-    RANKED_TEAM_5x5
-Ranked Solo/Duo
-    RANKED_SOLO_5x5
-Ranked Team 5x5
-    RANKED_TEAM_5x5
-</code></pre>
-
-<h4 id="working-with-lol-apis_other-maps">Other Maps</h4>
-<p>If a match is not played on Summoner's Rift, the <code>highestTierAchieved</code> field will return the highest ending tier for the previous season from any ranked queue.</p>
-<h3 id="working-with-lol-apis_icons-and-emblems">Icons and Emblems</h3>
-<p>The most recent emblems assets for all ranks can be found below.
-<img alt="" src="./Riot Developer Portal_files/emblems-and-positions-latest.jpg">
-<a href="https://static.developer.riotgames.com/docs/lol/ranked-emblems-latest.zip">ranked-emblems-latest.zip</a></p>
-<p>Older tier icon assets can be found below.</p>
-<p><img alt="" src="./Riot Developer Portal_files/emblems_and_positions.png"></p>
-<p><a href="https://static.developer.riotgames.com/docs/lol/ranked-emblems.zip">ranked-emblems.zip</a><br>
-<a href="https://static.developer.riotgames.com/docs/lol/ranked-positions.zip">ranked-positions.zip</a>  </p>
-<p><img alt="" src="./Riot Developer Portal_files/tier-icons.png"></p>
-<p><a href="https://static.developer.riotgames.com/docs/lol/tier-icons.zip">tier-icons.zip</a></p>
-<style>
-
-/* Removes Grey Cell Background */
-.content table>tbody>tr:nth-of-type(even)
-{
-  background-color: transparent;!important;
-}
-
-/* Sets Border Width, Type, and Color for Leftmost Table Column Border */
-.content table tr th:first-child, .content table tr td:first-child
-{
-  border-left: 1px solid #000;
-}
-
-/* Sets Background Color, Font Color, and Padding for Table Heading Row */
-.content table>thead tr th
-{
-  background: #000;
-  color: #ffffff!important;
-  padding: 6px 13px!important;
-}
-
-/* Sets Border Width, Type and Color for Very Top Table Border */
-.content table tr th
-
-{
-  border-top: 1px solid #000;
-}
-
-/* Sets Border Width, Type, and Color for Bottom and Right Sides of Cells */
-.content table tr th, .content table tr td
-
-{
-  border-right:1px solid #000;
-  border-bottom:1px solid #000;
-}
-
-/* Adds 10px of Empty Space Before the Top of the H3 Heading */
-h3
-{
-  margin-top: 10px;
-}
-
-/* Adds 10px of Empty Space Before the Top of the H4 Heading */
-h4
-{
-  margin-top: 10px;
-}
-
-
-/* Removes Grey and White Lines from Code Block */
-.content pre>code
-
-{
-  background: #f7f7f9;
-}
-
-/* Changes Font Color of Inline Code Snippet to Black from Red */
-.content code
-{
-  color: #000;
-}
-
-</style>
-<h1 id="getting-help-and-staying-up-to-date">Getting Help and Staying Up-to-date</h1>
-<p>If you run into any difficulties or are having technical issues, please join <a href="https://discord.gg/riotgamesdevrel" target="_blank">Developer Discord</a> for support. Follow our <a href="https://twitter.com/RiotGamesDevRel" target="_blank">Twitter</a> for the latest updates. </p>
-      </div>
-      <div class="content-footer">
-        <div class="footer-social">
-          <a href="https://twitter.com/RiotGamesDevRel" target="_blank">
-            <div class="twitter">
-              <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"></path>
-              </svg>
-            </div>
-          </a>
-          <a href="https://discord.gg/riotgamesdevrel" target="_blank">
-            <div class="discord">
-              <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20.222 0c1.406 0 2.54 1.137 2.607 2.475V24l-2.677-2.273-1.47-1.338-1.604-1.398.67 2.205H3.71c-1.402 0-2.54-1.065-2.54-2.476V2.48C1.17 1.142 2.31.003 3.715.003h16.5L20.222 0zm-6.118 5.683h-.03l-.202.2c2.073.6 3.076 1.537 3.076 1.537-1.336-.668-2.54-1.002-3.744-1.137-.87-.135-1.74-.064-2.475 0h-.2c-.47 0-1.47.2-2.81.735-.467.203-.735.336-.735.336s1.002-1.002 3.21-1.537l-.135-.135s-1.672-.064-3.477 1.27c0 0-1.805 3.144-1.805 7.02 0 0 1 1.74 3.743 1.806 0 0 .4-.533.805-1.002-1.54-.468-2.14-1.404-2.14-1.404s.134.066.335.2h.06c.03 0 .044.015.06.03v.006c.016.016.03.03.06.03.33.136.66.27.93.4.466.202 1.065.403 1.8.536.93.135 1.996.2 3.21 0 .6-.135 1.2-.267 1.8-.535.39-.2.87-.4 1.397-.737 0 0-.6.936-2.205 1.404.33.466.795 1 .795 1 2.744-.06 3.81-1.8 3.87-1.726 0-3.87-1.815-7.02-1.815-7.02-1.635-1.214-3.165-1.26-3.435-1.26l.056-.02zm.168 4.413c.703 0 1.27.6 1.27 1.335 0 .74-.57 1.34-1.27 1.34-.7 0-1.27-.6-1.27-1.334.002-.74.573-1.338 1.27-1.338zm-4.543 0c.7 0 1.266.6 1.266 1.335 0 .74-.57 1.34-1.27 1.34-.7 0-1.27-.6-1.27-1.334 0-.74.57-1.338 1.27-1.338z"></path>
-              </svg>
-            </div>
-          </a>
-          <a href="https://github.com/RiotGames/developer-relations/issues" target="_blank">
-            <div class="github">
-              <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path>
-              </svg>
-            </div>
-          </a>
-        </div>
-        <div class="footer-links">
-          <a href="https://developer.riotgames.com/terms">Terms</a>&nbsp;&nbsp;·&nbsp;&nbsp;
-          <a href="https://www.riotgames.com/en/privacy-notice">Privacy</a>
-        </div>
-        <div class="footer-copyright">© 2021 Riot Games, Inc. All rights reserved. League of Legends and Riot Games are trademarks, service marks, and registered trademarks of Riot Games, Inc.</div>
-
-      </div>
-    </div>
-  </div>
-</div>
-<script>
-$(".navbar-toggler").click(function() {
-  $(".navbar-menu").toggleClass( "open", 500, "swing" );
-});
-</script>
-<iframe name="__uspapiLocator" style="display: none;" src="./Riot Developer Portal_files/saved_resource.html"></iframe>
-
-</body></html>
+  </script>
+</body>
+</html>
