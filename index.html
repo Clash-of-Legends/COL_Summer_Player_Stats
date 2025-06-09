@@ -87,6 +87,7 @@
       <option value="MVP">MVP</option>
       <option value="Kills">Kills</option>
       <option value="Tým">Tým</option>
+      <option value="Role">Pozice (Role)</option>
     </select>
   </div>
 
@@ -220,9 +221,13 @@
       const grid = document.getElementById("grid");
       grid.innerHTML = "";
 
+      const roleOrder = { TOP: 1, JNG: 2, MID: 3, ADC: 4, SUP: 5, SUB: 6 };
+      
       players.sort((a, b) => {
         if (sortBy === "Tým") {
           return (a["Tým"] || "").localeCompare(b["Tým"] || "");
+        } else if (sortBy === "Role") {
+          return (roleOrder[a["Role"]] || 99) - (roleOrder[b["Role"]] || 99);
         } else {
           const num = val => parseFloat((val || '0').replace(',', '.')) || 0;
           return num(b[sortBy]) - num(a[sortBy]);
